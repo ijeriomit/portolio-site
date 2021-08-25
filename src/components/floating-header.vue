@@ -1,13 +1,14 @@
 <template>
-  <div class="wrapper">
+  <div class="header-wrapper">
     <div class="title-section">
-      <div class="logo">
+      <a class="logo" href="#HOME">
         <img style="height: 100%; width: 100%;" :src="logo" />
-      </div>
+      </a>
       <div class="title">
         IJERI OMITOGUN
       </div>
     </div>
+    <!-- <div class="divider"></div> -->
     <div class="nav-section">
       <nav-bar />
     </div>
@@ -30,39 +31,58 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "@/scss/variables.scss";
-.wrapper {
+.header-wrapper {
   width: 100%;
+  top: 0;
+  left: 0;
   background-color: $primary-color;
   // opacity: 67%;
   display: flex;
-  flex-flow: column nowrap;
+  flex-flow: row nowrap;
+  flex-grow: 0;
   position: fixed;
+  align-items: center;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-bottom: rgb(59, 168, 92) solid 1.5px;
+  justify-content: space-around;
 }
 .title-section {
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
-  align-items: center;
   order: 1;
+  right: 5%;
+  position: relative;
 }
 .nav-section {
-  // display: flex;
-  // flex-flow: row nowrap;
   order: 2;
+  left: 5%;
+  position: relative;
   border-bottom: 2px solid $primary-color;
 }
+// .divider {
+//   background-color: white;
+//   height: 5px;
+//   order: 2;
+//   width: 100%;
+// }
 .logo {
   width: 40px;
   height: 40px;
   order: 1;
-  padding: 5px;
+  // padding: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  // align-self: center;
 }
 .title {
   order: 2;
   font-family: $font;
-  font-size: large;
+  font-size: xx-large;
   color: $light-text-color;
   align-self: baseline;
-  padding: 5px;
+  font-weight: bold;
+  // padding: 5px;
 }
 </style>

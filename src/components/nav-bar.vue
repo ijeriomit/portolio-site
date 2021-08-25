@@ -1,6 +1,6 @@
 <template>
   <div class="nav-wrapper">
-    <a style="margin-left: 60px" href="#HOME"> Home </a>
+    <a href="#HOME"> Home </a>
     <a href="#ABOUT ME"> About Me</a>
     <a href="#WORK EXPERIENCE"> Work Experience</a>
     <a href="#PROJECTS"> Projects</a>
@@ -21,7 +21,7 @@ export default {
   flex-wrap: nowrap;
 }
 a {
-  margin-left: 30px;
+  // margin-left: 30px;
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 10px;
@@ -29,9 +29,13 @@ a {
   width: fit-content;
   color: $light-text-color;
   text-decoration: none;
+  font-size: medium;
+  transition: color 0.4s ease-out;
+  line-height: 1;
+  // font-weight: bold;
 }
 a:hover {
-  background-color: $secondary-color;
   color: $dark-text-color;
+  font-weight: bolder;
 }
 </style>
