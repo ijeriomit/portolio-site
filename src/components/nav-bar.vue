@@ -1,11 +1,11 @@
 <template>
   <div class="nav-wrapper">
-    <a href="#HOME"> Home </a>
-    <a href="#ABOUT ME"> About Me</a>
-    <a href="#WORK EXPERIENCE"> Work Experience</a>
-    <a href="#PROJECTS"> Projects</a>
-    <a href="#HOBBIES"> Hobbies</a>
-    <a href="#CONTACT ME"> Contact Me</a>
+    <a aria-label="home-tab" role="tab" href="#HOME"> .home() </a>
+    <a href="#ABOUT ME"> .aboutMe()</a>
+    <a href="#WORK EXPERIENCE"> .workExperience()</a>
+    <a href="#PROJECTS"> .projects()</a>
+    <a href="#HOBBIES"> .hobbies()</a>
+    <a href="#CONTACT ME"> .contactMe()</a>
   </div>
 </template>
 <script>
@@ -19,6 +19,7 @@ export default {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
+  font-size: larger;
 }
 a {
   // margin-left: 30px;
@@ -29,7 +30,6 @@ a {
   width: fit-content;
   color: $light-text-color;
   text-decoration: none;
-  font-size: medium;
   transition: color 0.4s ease-out;
   line-height: 1;
   // font-weight: bold;

@@ -5,10 +5,9 @@
         <img style="height: 100%; width: 100%;" :src="logo" />
       </a>
       <div class="title">
-        IJERI OMITOGUN
+        .IO
       </div>
     </div>
-    <!-- <div class="divider"></div> -->
     <div class="nav-section">
       <nav-bar />
     </div>
@@ -36,7 +35,6 @@ export default {
   top: 0;
   left: 0;
   background-color: $primary-color;
-  // opacity: 67%;
   display: flex;
   flex-flow: row nowrap;
   flex-grow: 0;
@@ -44,7 +42,6 @@ export default {
   align-items: center;
   padding-top: 15px;
   padding-bottom: 15px;
-  border-bottom: rgb(59, 168, 92) solid 1.5px;
   justify-content: space-around;
 }
 .title-section {
@@ -61,28 +58,21 @@ export default {
   position: relative;
   border-bottom: 2px solid $primary-color;
 }
-// .divider {
-//   background-color: white;
-//   height: 5px;
-//   order: 2;
-//   width: 100%;
-// }
+
 .logo {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   order: 1;
-  // padding: 5px;
   padding-left: 20px;
   padding-right: 20px;
-  // align-self: center;
+  align-self: center;
 }
 .title {
   order: 2;
   font-family: $font;
-  font-size: xx-large;
   color: $light-text-color;
-  align-self: baseline;
+  align-self: center;
   font-weight: bold;
-  // padding: 5px;
+  font-size: xxx-large;
 }
 </style>

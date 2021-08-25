@@ -57,7 +57,7 @@ html {
 }
 .primary-background-block {
   @extend .background-block;
-  @extend .gradient;
+  // @extend .gradient;
   color: $light-text-color;
   background-color: $primary-color;
 }
@@ -65,14 +65,13 @@ html {
   background-image: linear-gradient(
     to right,
     $secondary-color,
+    #5db191,
+    #197a55,
     $primary-color,
     $primary-color,
     $primary-color,
-    $primary-color,
-    $primary-color,
-    $primary-color,
-    $primary-color,
-    $primary-color,
+    #197a55,
+    #5db191,
     $secondary-color
   );
 }
