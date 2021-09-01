@@ -1,11 +1,11 @@
 <template>
   <div class="nav-wrapper">
     <a aria-label="home-tab" role="tab" href="#HOME"> .home() </a>
-    <a href="#ABOUT ME"> .aboutMe()</a>
-    <a href="#WORK EXPERIENCE"> .workExperience()</a>
+    <a href="#ABOUT-ME"> .aboutMe()</a>
+    <a href="#WORK-EXPERIENCE"> .workExperience()</a>
     <a href="#PROJECTS"> .projects()</a>
-    <a href="#HOBBIES"> .hobbies()</a>
-    <a href="#CONTACT ME"> .contactMe()</a>
+    <!-- <a href="#HOBBIES"> .hobbies()</a> -->
+    <a href="#CONTACT-ME"> .contactMe()</a>
   </div>
 </template>
 <script>
@@ -22,7 +22,6 @@ export default {
   font-size: larger;
 }
 a {
-  // margin-left: 30px;
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 10px;
@@ -32,7 +31,6 @@ a {
   text-decoration: none;
   transition: color 0.4s ease-out;
   line-height: 1;
-  // font-weight: bold;
 }
 a:hover {
   color: $dark-text-color;
