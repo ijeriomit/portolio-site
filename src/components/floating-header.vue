@@ -32,16 +32,9 @@ export default {
 @import "@/scss/variables.scss";
 .header-wrapper {
   width: 100%;
-  top: 0;
-  left: 0;
-  background-color: $primary-color;
   display: flex;
   flex-flow: row nowrap;
-  flex-grow: 0;
-  position: fixed;
   align-items: center;
-  padding-top: 15px;
-  padding-bottom: 15px;
   justify-content: space-around;
 }
 .title-section {

@@ -22,7 +22,7 @@
       </div>
       <div class="image-reel">
         <button></button>
-        <img style="height: 475px; width: 450px;" />
+        <img />
         <button></button>
       </div>
     </div>
@@ -58,13 +58,12 @@ export default {
 <style lang="scss" scoped>
 @import "@/scss/variables.scss";
 
+$image-height: 20rem;
+$image-width: 20.5rem;
+
 .work-experience-wrapper {
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: flex-start;
-  position: relative;
-  left: 10vw;
-  width: 65%;
+  // align-items: flex-start;
+  width: 97.5%;
 }
 
 .options {
@@ -76,6 +75,10 @@ export default {
 }
 .options::-webkit-scrollbar {
   display: none;
+}
+img {
+  width: $image-width;
+  height: $image-height;
 }
 .image-reel {
   margin-left: auto;
@@ -96,13 +99,10 @@ li > div:hover {
 }
 .content-section {
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
   justify-content: flex-start;
-  width: 100%;
   padding-left: 100px;
   color: $dark-text-color;
-
-  //   cursor: pointer;
 }
 .content-text-section {
   padding-left: 50px;

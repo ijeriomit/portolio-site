@@ -16,14 +16,7 @@ export default {
 <style lang="scss" scoped>
 @import "@/scss/variables.scss";
 .home-wrapper {
-  display: flex;
-  flex-flow: column;
-  height: 100%;
-  position: relative;
-  padding-left: 15vw;
-  padding-right: 15vw;
-  padding-top: 150px;
-  width: 60vw;
+  width: 80%;
 }
 
 .line {

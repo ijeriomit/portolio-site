@@ -19,7 +19,7 @@ export default {
 .title-section {
   font-size: $title-text-size;
   align-self: flex-start;
-  padding-top: $title-top-padding;
+  padding-top: $title-top-offset;
   padding-bottom: $title-bottom-padding;
   font-weight: bold;
   display: flex;
