@@ -20,10 +20,13 @@
           </li>
         </ul>
       </div>
-      <div class="image-reel">
-        <button></button>
-        <img />
-        <button></button>
+      <div class="image-section">
+        <img class="main-image" />
+        <div class="image-reel">
+          <button></button>
+          <div class="image-square" v-for="photo in photos" :key="photo"></div>
+          <button></button>
+        </div>
       </div>
     </div>
     <div class="highlight-reel"></div>
@@ -45,7 +48,8 @@ export default {
         "aid odda dadfda ida jai odjf",
         "oiadioahif a jdfio ajdfadoifaj oidfja",
         "oiajdfioad adjoiadfjai adodjfioadf ioajdf"
-      ]
+      ],
+      photos: [1, 2, 3, 4]
     };
   },
   methods: {
@@ -60,9 +64,10 @@ export default {
 
 $image-height: 20rem;
 $image-width: 20.5rem;
+$image-reel-square-height: $image-width * 0.15;
+$image-reel-square-width: $image-width * 0.15;
 
 .work-experience-wrapper {
-  // align-items: flex-start;
   width: 97.5%;
 }
 
@@ -70,21 +75,38 @@ $image-width: 20.5rem;
   font-size: 25px;
   overflow-y: scroll;
   max-height: 200px;
-  border-left: 3px solid $quinary-color;
+  border-left: 2px solid $quinary-color;
   list-style-type: none;
+  order: 1;
 }
 .options::-webkit-scrollbar {
   display: none;
 }
-img {
+.main-image {
   width: $image-width;
   height: $image-height;
 }
-.image-reel {
+.image-section {
+  order: 3;
   margin-left: auto;
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: column nowrap;
+  max-width: $image-width;
+  height: 25rem;
   align-items: center;
+}
+.image-reel {
+  position: relative;
+  top: 20px;
+  display: flex;
+  width: $image-width;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+}
+.image-square {
+  height: $image-reel-square-height;
+  width: $image-reel-square-width;
+  background-color: grey;
 }
 li > div {
   cursor: pointer;
@@ -93,6 +115,7 @@ li > div {
 }
 .bullet {
   padding: 10px 0px;
+  text-align: left;
 }
 li > div:hover {
   background-color: $quinary-color;
@@ -101,14 +124,13 @@ li > div:hover {
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
-  padding-left: 100px;
+  padding-left: 10px;
   color: $dark-text-color;
 }
 .content-text-section {
   padding-left: 50px;
   padding-right: 50px;
+  order: 2;
+  text-align: center;
 }
-// .content-section:hover {
-//   color: red;
-// }
 </style>

@@ -70,8 +70,13 @@ export default {
 <style lang="scss">
 @import "@/scss/variables.scss";
 
+$grid-height: $small-section-height + $small-section-height + $section-height +
+  $section-height + $section-height + $footer-height;
+
+$page-height: $header-height + $grid-height;
+
 #app {
-  height: $section-height * 5 + $header-height + $footer-height;
+  height: $page-height;
   width: 100vw;
   position: relative;
 }
@@ -90,25 +95,28 @@ export default {
 .content-grid {
   position: relative;
   top: $header-height;
-  height: $section-height * 5;
+  height: $grid-height;
   width: inherit;
   display: grid;
-  display: grid;
   grid-template-columns: 10vw 80vw 10vw;
-  grid-template-rows: $section-height $section-height $section-height $section-height $section-height $footer-height;
+  grid-template-rows:
+    $small-section-height $small-section-height $section-height
+    $section-height
+    $section-height $footer-height;
 }
 html {
   scroll-behavior: smooth;
 }
 body {
   margin: 0px;
+  overflow-x: hidden;
 }
 .background-block {
   z-index: 1;
-  height: $section-height;
+  height: 100%;
   position: relative;
   grid-column: 1/4;
-  border: solid 2px red;
+  border: 2px solid red;
 }
 .content-block {
   z-index: 2;

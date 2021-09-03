@@ -1,5 +1,5 @@
 <template>
-  <div class="title-section" :class="rightJustified ? 'right' : ''">
+  <div class="title-section">
     <div :class="rightJustified ? 'right' : 'left'">{{ title }}</div>
     <div class="title-line"></div>
   </div>
