@@ -4,7 +4,6 @@
     <a href="#ABOUT-ME"> .aboutMe()</a>
     <a href="#WORK-EXPERIENCE"> .workExperience()</a>
     <a href="#PROJECTS"> .projects()</a>
-    <!-- <a href="#HOBBIES"> .hobbies()</a> -->
     <a href="#CONTACT-ME"> .contactMe()</a>
   </div>
 </template>

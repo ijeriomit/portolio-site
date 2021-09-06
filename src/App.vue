@@ -2,47 +2,30 @@
   <div id="app">
     <floating-header class="gradient header"></floating-header>
     <div class="content-grid">
-      <div
-        id="HOME"
-        class="primary-background-block"
-        style="grid-row: 1/1;"
-      ></div>
-      <div class="content-block" style="grid-row: 1/1;">
+      <div class="primary-background-block" style="grid-row: 1/1;"></div>
+      <div id="HOME" class="content-block" style="grid-row: 1/1;">
         <home class="section-wrapper" style="padding-bottom: 10vh;"></home>
       </div>
-      <div
-        id="ABOUT-ME"
-        style=" grid-row: 2/2;"
-        class="secondary-background-block"
-      ></div>
-      <div class="content-block" style="grid-row: 2/2;">
+      <div style=" grid-row: 2/2;" class="secondary-background-block"></div>
+      <div id="ABOUT-ME" class="content-block" style="grid-row: 2/2;">
         <about class="section-wrapper"> </about>
       </div>
-      <div
-        id="WORK-EXPERIENCE"
-        class="secondary-background-block"
-        style="grid-row: 3/3;"
-      ></div>
-      <div class="content-block" style="grid-row: 3/3;">
+      <div class="secondary-background-block" style="grid-row: 3/3;"></div>
+      <div id="WORK-EXPERIENCE" class="content-block" style="grid-row: 3/3;">
         <workexp class="section-wrapper"></workexp>
       </div>
-      <div
-        id="PROJECTS"
-        class="secondary-background-block"
-        style="grid-row: 4/4;"
-      ></div>
-      <div class="content-block" style="grid-row: 4/4;">
+      <div class="secondary-background-block" style="grid-row: 4/4;"></div>
+      <div id="PROJECTS" class="content-block" style="grid-row: 4/4;">
         <projects class="section-wrapper"></projects>
       </div>
-      <div
-        id="CONTACT-ME"
-        class="bottom-background-block"
-        style="grid-row:5/5;"
-      ></div>
-      <div class="content-block" style="grid-row: 5/5;">
-        <contact-me></contact-me>
+      <div class="bottom-background-block" style="grid-row:5/5;"></div>
+      <div id="CONTACT-ME" class="content-block" style="grid-row: 5/5;">
+        <contact-me class="section-wrapper"></contact-me>
       </div>
       <div class="footer" style="grid-row: 6/6;"></div>
+      <div class="content-block" style="grid-row: 6/6">
+        <Footer class="section-wrapper"></Footer>
+      </div>
     </div>
     <div class="social-bar"></div>
   </div>
@@ -54,6 +37,7 @@ import AboutMe from "./sections/about-me.vue";
 import workExperience from "./sections/work-experience.vue";
 import projects from "./sections/projects.vue";
 import contactMe from "./sections/contact-me.vue";
+import Footer from "./components/footer.vue";
 
 export default {
   name: "homepage",
@@ -63,7 +47,8 @@ export default {
     about: AboutMe,
     workexp: workExperience,
     projects: projects,
-    "contact-me": contactMe
+    "contact-me": contactMe,
+    Footer: Footer
   }
 };
 </script>
@@ -91,6 +76,7 @@ $page-height: $header-height + $grid-height;
   position: relative;
   background-color: $primary-color;
   grid-column: 1/4;
+  border-top: 5px solid $secondary-color;
 }
 .content-grid {
   position: relative;
@@ -159,6 +145,7 @@ body {
 .section-wrapper {
   display: flex;
   flex-flow: column nowrap;
-  max-height: $section-height;
+  height: 90%;
+  justify-content: space-around;
 }
 </style>

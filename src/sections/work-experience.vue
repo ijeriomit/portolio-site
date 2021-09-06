@@ -1,6 +1,10 @@
 <template>
   <div class="work-experience-wrapper">
-    <section-title :title="'.workExperience()'"></section-title>
+    <section-title
+      :title="'.workExperience()'"
+      style="align-self: flex-end;"
+      :rightJustified="true"
+    ></section-title>
     <div class="content-section">
       <ul class="options">
         <li v-for="company in companies" :key="company">
@@ -69,6 +73,7 @@ $image-reel-square-width: $image-width * 0.15;
 
 .work-experience-wrapper {
   width: 97.5%;
+  height: 90%;
 }
 
 .options {

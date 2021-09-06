@@ -1,10 +1,6 @@
 <template>
   <div class="projects-wrapper">
-    <section-title
-      style="align-self: flex-end;"
-      :title="'.projects()'"
-      :rightJustified="true"
-    ></section-title>
+    <section-title :title="'.projects()'"></section-title>
     <div class="content-section">
       <div class="folder">
         <button></button>
