@@ -1,6 +1,7 @@
 <template>
   <div class="about-me-wrapper">
     <section-title :title="'.aboutMe()'"></section-title>
+
     <div class="content-section">
       <div class="text-content">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
@@ -21,9 +22,9 @@
       </div>
       <div class="image-section">
         <div class="image-box">
-          <img />
+          <img ref="image" src="@/assets/6P8A8200_Original.jpg" />
         </div>
-        <div class="titled-image-shadow"></div>
+        <div ref="image-shadow" class="titled-image-shadow"></div>
       </div>
     </div>
   </div>
@@ -34,21 +35,29 @@ export default {
   name: "About-Me",
   components: {
     "section-title": sectionTitle
+  },
+  mounted: function() {
+    console.log(this.$refs["image"].offsetWidth);
+    // this.$refs["image-shadow"].style.width = this.$refs["image"].offsetWidth;
+    // this.$refs["image-shadow"].style.height = this.$refs["image"].offsetHeight;
   }
 };
 </script>
 <style lang="scss" scoped>
 @import "@/scss/variables.scss";
 
-$image-height: 20rem;
-$image-width: 20.5rem;
+$image-height: 31rem;
+$image-width: 25rem;
+$phone-image-width: 13rem;
+$phone-image-height: 15rem;
 
 .about-me-wrapper {
-  font-size: $text-size;
-  width: 90%;
+  width: 97.25%;
+  height: 100%;
+  margin-top: 3rem;
+  // flex-flow: row wrap;
 }
 .title-section {
-  font-size: $title-text-size;
   align-self: flex-start;
   position: relative;
   top: $title-top-offset;
@@ -61,36 +70,86 @@ $image-width: 20.5rem;
 .content-section {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
-  align-items: center;
-  top: $title-top-offset;
-  position: relative;
-  flex-shrink: 2;
+  height: 90%;
+  align-items: flex-start;
+  justify-content: space-around;
 }
 .text-content {
-  width: 700px;
-  flex-flow: column;
-  align-self: flex-start;
-  padding-top: 10px;
-  padding-bottom: 7.5vh;
+  width: 50%;
+  align-self: baseline;
+  // padding-top: 10rem;
+  max-height: 50%;
+  overflow: scroll;
+  margin-top: 2.5vw;
   color: $dark-text-color;
+  font-size: $text-size;
 }
 .image-section {
-  align-self: baseline;
+  align-self: flex-start;
+  height: $image-height;
+  width: $image-width;
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(196, 196, 153);
 }
 .titled-image-shadow {
-  background-color: $title-color;
-  transform: rotate(80deg);
-  height: $image-height;
-  width: $image-width;
-  z-index: -2;
+  // background-color: $title-color;
+  // transform: rotate(7.5deg);
+  position: relative;
+  bottom: 3rem;
+  right: 2.5rem;
+
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  border: 10px solid $title-color;
+  box-shadow: 30px 15px 20px rgba(25, 25, 25, 0.1);
 }
 .image-box {
-  height: $image-height;
-  width: $image-width;
-  background-color: rgb(196, 196, 153);
+  max-height: $image-height;
+  max-width: $image-width;
+  border: 0.1px solid $quinary-color;
+  box-shadow: 10px 15px 20px rgba(25, 25, 25, 0.1);
+  margin-bottom: 3rem;
+  margin-right: 2.5rem;
   position: absolute;
   z-index: 1;
   flex: 1 2 auto;
+}
+img {
+  // right: 0.5rem;
+  // top: 1.5rem;
+  position: relative;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+@media screen and (max-width: $small-screen-width) {
+  .content-section {
+    flex-flow: column nowrap;
+    // align-items: center;
+    justify-content: space-;
+  }
+  .text-content {
+    width: 100%;
+    word-break: break-word;
+    text-align: center;
+    margin-top: 0;
+    font-size: $phone-text-size;
+    max-height: 30%;
+  }
+  .image-section {
+    align-self: center;
+    width: $phone-image-width + 1rem;
+    height: $phone-image-height + 1rem;
+  }
+  .image-box {
+    width: 100%;
+    height: 100%;
+  }
+}
+@media screen and (max-width: $phone-screen-width) {
 }
 </style>

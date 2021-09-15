@@ -1,4 +1,5 @@
 $primary-color: #008753;
+// $primary-color: #008753c7;
 $secondary-color: #FFFFFF;
 $tertiary-color: #212926;
 $quaternary-color: #348566;
@@ -9,13 +10,21 @@ $light-text-color: #FFFFFF;
 $dark-text-color: #000000;
 $font: "Microsoft JhengHei", "MingLiU";
 
-$text-size: 1rem;
-$title-text-size: 50px;
+$phone-text-size: 1rem;
+$text-size: 1.25rem;
+$medium-text-size: 1.2rem;
+$large-text-size: 2.5rem;
+$title-text-size: 3.75rem;
+
 $title-top-offset: 2.75vh;
 $title-bottom-padding: 3.5vh;
 
 $header-height: 100px;
 $section-height: 900px;
-$small-section-height: ($section-height / 3) * 2;
+$small-section-height: ($section-height / 3) * 2 + 50px;
 $footer-height: 100px;
 // $subtitle-text-size: 50px;
+
+$phone-screen-width: 415px;
+$tablet-screen-width: 768px;
+$small-screen-width: 1024px;

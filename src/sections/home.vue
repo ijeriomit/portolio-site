@@ -1,8 +1,17 @@
 <template>
   <div class="home-wrapper">
-    <span class="first-line">Hi, my name is,</span>
-    <span class="second-line">Ijeri Omitogun </span>
-    <span class="third-line">
+    <span class="line">
+      <div class="intro">
+        <span class="hi">Hi, my name is,</span>
+        <span class="name"> Ijeri Omitogun </span>
+      </div>
+      <img
+        class="avatar"
+        src="@/assets/avatar-background.svg"
+        alt="cartoon avater"
+      />
+    </span>
+    <span class="description">
       Software Engineer with Robotics Experience and a Passion For Web
       Development
     </span>
@@ -16,31 +25,96 @@ export default {
 <style lang="scss" scoped>
 @import "@/scss/variables.scss";
 .home-wrapper {
-  width: 80%;
+  width: 90%;
+  height: 75%;
+  align-items: center;
+  padding-top: 5rem;
+}
+.avatar {
+  width: 20rem;
+  order: 1;
+  position: relative;
 }
 
-.line {
-  font-size: x-large;
-  font-weight: bold;
-  padding-bottom: 25px;
-  padding-top: 25px;
-}
-.first-line {
-  @extend .line;
-  order: 1;
-  color: $secondary-color;
-  font-size: 35px;
-}
-.second-line {
-  @extend .line;
+.intro {
   order: 2;
-  color: $dark-text-color;
-  font-size: 50px;
+  font-size: 3rem;
+  word-break: break-word;
+  line-height: 1.2;
+  font-weight: bold;
+  display: flex;
+  flex-flow: column nowrap;
+  text-justify: right;
+  width: 50%;
 }
-.third-line {
+
+.hi {
+  padding-bottom: 1.5rem;
+  padding-top: 1.5rem;
+  color: $secondary-color;
+  order: 1;
+}
+.name {
+  padding-bottom: 1.5rem;
+  padding-top: 1.5rem;
+  color: $dark-text-color;
+  order: 2;
+}
+.line {
+  display: flex;
+  flex-flow: row wrap;
+  width: 75%;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+}
+
+.description {
   @extend .line;
-  order: 3;
   color: $title-color;
-  font-size: 45px;
+  font-size: 2.75rem;
+  word-break: break-word;
+  font-weight: bold;
+}
+
+@media screen and (max-width: $small-screen-width) {
+  .avatar {
+    width: 12.5rem;
+  }
+  .line {
+    // text-align: center;
+    flex-flow: column nowrap;
+    width: 100%;
+  }
+  .intro {
+    font-size: 2rem;
+    text-align: center;
+    width: 100%;
+  }
+  .description {
+    text-align: center;
+    font-size: 1.75rem;
+    width: 100%;
+  }
+}
+@media screen and (max-width: $phone-screen-width) {
+  .line {
+    flex-flow: column nowrap;
+    width: 100%;
+  }
+  .intro {
+    font-size: 1.75rem;
+    text-align: center;
+    width: 100%;
+  }
+  .description {
+    text-align: center;
+    font-size: 1.5rem;
+    width: 100%;
+  }
+  .avatar {
+    width: 10.5rem;
+  }
 }
 </style>

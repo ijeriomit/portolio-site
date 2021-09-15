@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <floating-header class="gradient header"></floating-header>
+    <floating-header class="header"></floating-header>
     <div class="content-grid">
       <div class="primary-background-block" style="grid-row: 1/1;"></div>
       <div id="HOME" class="content-block" style="grid-row: 1/1;">
@@ -55,10 +55,8 @@ export default {
 <style lang="scss">
 @import "@/scss/variables.scss";
 
-$grid-height: $small-section-height + $small-section-height + $section-height +
-  $section-height + $section-height + $footer-height;
-
-$page-height: $header-height + $grid-height;
+$page-height: $header-height + $small-section-height + $section-height +
+  $section-height + $section-height + $section-height + $footer-height;
 
 #app {
   height: $page-height;
@@ -80,13 +78,13 @@ $page-height: $header-height + $grid-height;
 }
 .content-grid {
   position: relative;
-  top: $header-height;
-  height: $grid-height;
+  // top: 60px;
+  height: 100%;
   width: inherit;
   display: grid;
   grid-template-columns: 10vw 80vw 10vw;
   grid-template-rows:
-    $small-section-height $small-section-height $section-height
+    ($small-section-height + $header-height) $section-height $section-height
     $section-height
     $section-height $footer-height;
 }
@@ -94,7 +92,7 @@ html {
   scroll-behavior: smooth;
 }
 body {
-  margin: 0px;
+  margin: 0;
   overflow-x: hidden;
 }
 .background-block {
@@ -112,6 +110,7 @@ body {
   align-items: center;
   justify-content: center;
   grid-column: 2/2;
+  overflow: hidden;
 }
 .primary-background-block {
   @extend .background-block;
@@ -127,13 +126,13 @@ body {
   background-image: linear-gradient(
     to right,
     $secondary-color,
-    #5db191,
-    #197a55,
     $primary-color,
     $primary-color,
     $primary-color,
-    #197a55,
-    #5db191,
+    $primary-color,
+    $primary-color,
+    $primary-color,
+    $primary-color,
     $secondary-color
   );
 }
@@ -147,5 +146,15 @@ body {
   flex-flow: column nowrap;
   height: 90%;
   justify-content: space-around;
+  overflow: hidden;
+}
+img {
+  max-width: 100%;
+  height: auto;
+}
+@media screen and (max-width: $phone-screen-width) {
+  .section-wrapper {
+    justify-content: center;
+  }
 }
 </style>

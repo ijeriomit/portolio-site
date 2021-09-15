@@ -38,8 +38,6 @@ export default {
   align-self: center;
 }
 .content-section {
-  // top: 50%;
-  // position: relative;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;

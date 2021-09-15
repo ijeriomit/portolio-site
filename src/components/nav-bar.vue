@@ -18,7 +18,7 @@ export default {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  font-size: larger;
+  font-size: $medium-text-size;
 }
 a {
   padding-left: 20px;
@@ -34,5 +34,7 @@ a {
 a:hover {
   color: $dark-text-color;
   font-weight: bolder;
+  border-bottom: 1px solid $dark-text-color;
+  // text-decoration: underline;
 }
 </style>
