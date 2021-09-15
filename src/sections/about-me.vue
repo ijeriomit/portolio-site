@@ -21,6 +21,7 @@
         magnam aliquam quaerat voluptatem. Ut enim ad minima veniam,
       </div>
       <div class="image-section">
+        <div class="background-shadow"></div>
         <div class="image-box">
           <img ref="image" src="@/assets/6P8A8200_Original.jpg" />
         </div>
@@ -92,6 +93,7 @@ $phone-image-height: 15rem;
   flex-flow: row wrap;
   align-items: center;
   justify-content: center;
+  // background-color: rgb(196, 196, 153);
   background-color: rgb(196, 196, 153);
 }
 .titled-image-shadow {
@@ -110,13 +112,22 @@ $phone-image-height: 15rem;
 .image-box {
   max-height: $image-height;
   max-width: $image-width;
-  border: 0.1px solid $quinary-color;
+  // border: 0.1px solid $quinary-color;
   box-shadow: 10px 15px 20px rgba(25, 25, 25, 0.1);
   margin-bottom: 3rem;
   margin-right: 2.5rem;
   position: absolute;
   z-index: 1;
-  flex: 1 2 auto;
+}
+.background-shadow {
+  z-index: -1;
+  height: $image-height + 6rem;
+  width: $image-width + 6rem;
+  margin-right: 2.5rem;
+  margin-bottom: 2.5rem;
+  // background-color: aliceblue;
+  background-image: radial-gradient(#9fb5ccf8, #ffffff);
+  position: absolute;
 }
 img {
   // right: 0.5rem;
