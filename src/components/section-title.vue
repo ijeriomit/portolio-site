@@ -45,4 +45,10 @@ export default {
   margin-left: 20px;
   margin-right: 20px;
 }
+
+@media screen and (max-width: $small-screen-width) {
+  .title-section {
+    font-size: $large-text-size;
+  }
+}
 </style>
