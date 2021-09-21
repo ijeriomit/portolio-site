@@ -20,27 +20,38 @@
         sed quia non numquam eius modi tempora incidunt ut labore et dolore
         magnam aliquam quaerat voluptatem. Ut enim ad minima veniam,
       </div>
-      <div class="image-section">
+      <layered-frame
+        :borderColor="'#4F3E3E'"
+        :backgroundColor="'rgb(196, 196, 153)'"
+        :horizontalOffset="2.5"
+        :verticalOffset="3"
+        :imageSrc="image"
+        class="image-frame"
+      ></layered-frame>
+      <!-- <div class="image-section">
         <div class="background-shadow"></div>
         <div class="image-box">
           <img ref="image" src="@/assets/6P8A8200_Original.jpg" />
         </div>
-        <div ref="image-shadow" class="titled-image-shadow"></div>
-      </div>
+        <div ref="image-shadow" class="titled-image-shadow"></div> -->
+      <!-- </div> -->
     </div>
   </div>
 </template>
 <script>
 import sectionTitle from "@/components/section-title.vue";
+import layeredImageFrame from "@/components/layered-image-frame";
+import image from "@/assets/6P8A8200_Original.jpg";
 export default {
   name: "About-Me",
-  components: {
-    "section-title": sectionTitle
+  data: function() {
+    return {
+      image: image
+    };
   },
-  mounted: function() {
-    console.log(this.$refs["image"].offsetWidth);
-    // this.$refs["image-shadow"].style.width = this.$refs["image"].offsetWidth;
-    // this.$refs["image-shadow"].style.height = this.$refs["image"].offsetHeight;
+  components: {
+    "section-title": sectionTitle,
+    "layered-frame": layeredImageFrame
   }
 };
 </script>
@@ -56,7 +67,6 @@ $phone-image-height: 15rem;
   width: 97.25%;
   height: 100%;
   margin-top: 3rem;
-  // flex-flow: row wrap;
 }
 .title-section {
   align-self: flex-start;
@@ -78,82 +88,83 @@ $phone-image-height: 15rem;
 .text-content {
   width: 50%;
   align-self: baseline;
-  // padding-top: 10rem;
-  max-height: 50%;
-  overflow: scroll;
   margin-top: 2.5vw;
   color: $dark-text-color;
   font-size: $text-size;
+  order: 1;
 }
-.image-section {
-  align-self: flex-start;
-  height: $image-height;
+// .image-section {
+//   display: none;
+//   align-self: flex-start;
+//   height: $image-height;
+//   width: $image-width;
+//   flex-flow: row wrap;
+//   align-items: center;
+//   justify-content: center;
+//   background-color: rgb(196, 196, 153);
+// }
+// .titled-image-shadow {
+//   position: relative;
+//   bottom: 3rem;
+//   right: 2.5rem;
+
+//   height: 100%;
+//   width: 100%;
+//   z-index: 1;
+//   border: 10px solid $title-color;
+//   box-shadow: 30px 15px 20px rgba(25, 25, 25, 0.1);
+// }
+// .image-box {
+//   max-height: $image-height;
+//   max-width: $image-width;
+//   box-shadow: 10px 15px 20px rgba(25, 25, 25, 0.1);
+//   margin-bottom: 3rem;
+//   margin-right: 2.5rem;
+//   position: absolute;
+//   z-index: 1;
+// }
+// .background-shadow {
+//   z-index: -1;
+//   height: $image-height + 6.5rem;
+//   width: $image-width + 6rem;
+//   margin-right: 2.5rem;
+//   margin-bottom: 2.5rem;
+//   fill-opacity: $phone-image-width;
+//   background-image: radial-gradient(#9fb5ccf8, #ffffff);
+//   position: absolute;
+// }
+// img {
+//   position: relative;
+//   max-width: 100%;
+//   max-height: 100%;
+// }
+
+.image-frame {
+  order: 1;
   width: $image-width;
-  display: flex;
-  flex-flow: row wrap;
-  align-items: center;
-  justify-content: center;
-  // background-color: rgb(196, 196, 153);
-  background-color: rgb(196, 196, 153);
+  height: $image-height;
 }
-.titled-image-shadow {
-  // background-color: $title-color;
-  // transform: rotate(7.5deg);
-  position: relative;
-  bottom: 3rem;
-  right: 2.5rem;
-
-  height: 100%;
-  width: 100%;
-  z-index: 1;
-  border: 10px solid $title-color;
-  box-shadow: 30px 15px 20px rgba(25, 25, 25, 0.1);
-}
-.image-box {
-  max-height: $image-height;
-  max-width: $image-width;
-  // border: 0.1px solid $quinary-color;
-  box-shadow: 10px 15px 20px rgba(25, 25, 25, 0.1);
-  margin-bottom: 3rem;
-  margin-right: 2.5rem;
-  position: absolute;
-  z-index: 1;
-}
-.background-shadow {
-  z-index: -1;
-  height: $image-height + 6rem;
-  width: $image-width + 6rem;
-  margin-right: 2.5rem;
-  margin-bottom: 2.5rem;
-  // background-color: aliceblue;
-  background-image: radial-gradient(#9fb5ccf8, #ffffff);
-  position: absolute;
-}
-img {
-  // right: 0.5rem;
-  // top: 1.5rem;
-  position: relative;
-  max-width: 100%;
-  max-height: 100%;
-}
-
 @media screen and (max-width: $small-screen-width) {
   .content-section {
     flex-flow: column nowrap;
-    // align-items: center;
-    justify-content: space-;
+    justify-content: space-evenly;
   }
   .text-content {
     width: 100%;
+    max-height: 45%;
+    overflow: scroll;
     word-break: break-word;
     text-align: center;
     margin-top: 0;
     font-size: $phone-text-size;
-    max-height: 30%;
+    // max-height: 30%;
+    order: 1;
   }
-  .image-section {
+  .image-frame {
+    // display: none;
     align-self: center;
     width: $phone-image-width + 1rem;
+    order: 0;
     height: $phone-image-height + 1rem;
   }
   .image-box {
