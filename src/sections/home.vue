@@ -53,6 +53,7 @@ export default {
   padding-top: 1.5rem;
   color: $secondary-color;
   order: 1;
+  font: $vs-code-font;
 }
 .name {
   padding-bottom: 1.5rem;
@@ -72,8 +73,8 @@ export default {
 
 .description {
   @extend .line;
-  color: $title-color;
-  font-size: 2.75rem;
+  color: $dark-text-color;
+  font-size: 2.5rem;
   word-break: break-word;
   font-weight: bold;
 }

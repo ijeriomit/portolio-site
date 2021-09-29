@@ -5,10 +5,13 @@ $tertiary-color: #212926;
 $quaternary-color: #348566;
 $quinary-color: #74817c;
 
+$possible-grey-color: #ebeeed;
+
 $title-color: #4F3E3E;
 $light-text-color: #FFFFFF;
 $dark-text-color: #000000;
 $font: "Microsoft JhengHei", "MingLiU";
+$vs-code-font: Consolas, monaco, monospace;
 
 $phone-text-size: 1rem;
 $text-size: 1.25rem;
@@ -22,6 +25,7 @@ $title-bottom-padding: 3.5vh;
 
 $header-height: 100px;
 $section-height: 900px;
+$large-section-height: 1200px;
 $small-section-height: ($section-height / 3) * 2 + 50px;
 $footer-height: 100px;
 // $subtitle-text-size: 50px;
@@ -29,3 +33,4 @@ $footer-height: 100px;
 $phone-screen-width: 415px;
 $tablet-screen-width: 768px;
 $small-screen-width: 1024px;
+

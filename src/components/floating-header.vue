@@ -5,12 +5,14 @@
         <img style="height: 100%; width: 100%;" :src="logo" />
       </a>
       <div class="title">
-        .IO
+        class IO:
       </div>
     </div>
+
     <div class="nav-section">
       <nav-bar />
     </div>
+
     <font-awesome class="hamburger-menu" :icon="['fa', 'bars']"></font-awesome>
   </div>
 </template>

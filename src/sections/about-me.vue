@@ -1,7 +1,13 @@
 <template>
   <div class="about-me-wrapper">
-    <section-title :title="'.aboutMe()'"></section-title>
-
+    <section-title>
+      <template v-slot:section-title-content>
+        <div class="title">AboutMe:</div>
+        <div class="section-title-keyword-1">function()</div>
+        <div class="section-title-line"></div>
+        <div class="section-title-arrow"></div>
+      </template>
+    </section-title>
     <div class="content-section">
       <div class="text-content">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
@@ -39,8 +45,9 @@
   </div>
 </template>
 <script>
-import sectionTitle from "@/components/section-title.vue";
 import layeredImageFrame from "@/components/layered-image-frame";
+import sectionTitle from "@/components/section-title.vue";
+
 import image from "@/assets/6P8A8200_Original.jpg";
 export default {
   name: "About-Me",
@@ -50,8 +57,8 @@ export default {
     };
   },
   components: {
-    "section-title": sectionTitle,
-    "layered-frame": layeredImageFrame
+    "layered-frame": layeredImageFrame,
+    "section-title": sectionTitle
   }
 };
 </script>
@@ -68,16 +75,7 @@ $phone-image-height: 15rem;
   height: 100%;
   margin-top: 3rem;
 }
-.title-section {
-  align-self: flex-start;
-  position: relative;
-  top: $title-top-offset;
-  padding-bottom: $title-bottom-padding;
-  font-weight: bold;
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-}
+
 .content-section {
   display: flex;
   flex-flow: row wrap;
@@ -93,52 +91,6 @@ $phone-image-height: 15rem;
   font-size: $text-size;
   order: 1;
 }
-// .image-section {
-//   display: none;
-//   align-self: flex-start;
-//   height: $image-height;
-//   width: $image-width;
-//   flex-flow: row wrap;
-//   align-items: center;
-//   justify-content: center;
-//   background-color: rgb(196, 196, 153);
-// }
-// .titled-image-shadow {
-//   position: relative;
-//   bottom: 3rem;
-//   right: 2.5rem;
-
-//   height: 100%;
-//   width: 100%;
-//   z-index: 1;
-//   border: 10px solid $title-color;
-//   box-shadow: 30px 15px 20px rgba(25, 25, 25, 0.1);
-// }
-// .image-box {
-//   max-height: $image-height;
-//   max-width: $image-width;
-//   box-shadow: 10px 15px 20px rgba(25, 25, 25, 0.1);
-//   margin-bottom: 3rem;
-//   margin-right: 2.5rem;
-//   position: absolute;
-//   z-index: 1;
-// }
-// .background-shadow {
-//   z-index: -1;
-//   height: $image-height + 6.5rem;
-//   width: $image-width + 6rem;
-//   margin-right: 2.5rem;
-//   margin-bottom: 2.5rem;
-//   fill-opacity: $phone-image-width;
-//   background-image: radial-gradient(#9fb5ccf8, #ffffff);
-//   position: absolute;
-// }
-// img {
-//   position: relative;
-//   max-width: 100%;
-//   max-height: 100%;
-// }
-
 .image-frame {
   order: 1;
   width: $image-width;
@@ -157,11 +109,9 @@ $phone-image-height: 15rem;
     text-align: center;
     margin-top: 0;
     font-size: $phone-text-size;
-    // max-height: 30%;
     order: 1;
   }
   .image-frame {
-    // display: none;
     align-self: center;
     width: $phone-image-width + 1rem;
     order: 0;

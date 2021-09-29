@@ -1,5 +1,14 @@
 <template>
   <div class="contact-me-wrapper">
+    <section-title>
+      <template v-slot:section-title-content>
+        <div class="section-title-keyword-1">function()</div>
+        <div class="section-title-operator">{</div>
+        <div class="section-title-keyword-2">return</div>
+        <div class="title">WorkExperience</div>
+        <div class="section-title-operator">}</div>
+      </template>
+    </section-title>
     <div class="title">Contact Me</div>
     <form>
       <div>Reason For Reaching Out</div>
@@ -12,8 +21,13 @@
   </div>
 </template>
 <script>
+import sectionTitle from "@/components/section-title.vue";
+
 export default {
-  name: "contact-me"
+  name: "contact-me",
+  components: {
+    "section-title": sectionTitle
+  }
 };
 </script>
 <style lang="scss" scoped>
@@ -22,7 +36,7 @@ export default {
 .contact-me-wrapper {
   height: 80%;
   border-radius: 25%;
-  width: 70%;
+  width: 85%;
   align-self: center;
   align-items: center;
   justify-content: center;

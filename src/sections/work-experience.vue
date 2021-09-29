@@ -1,10 +1,14 @@
 <template>
   <div class="work-experience-wrapper">
-    <section-title
-      :title="'.workExperience()'"
-      style="align-self: flex-end;"
-      :rightJustified="true"
-    ></section-title>
+    <section-title>
+      <template v-slot:section-title-content>
+        <div class="section-title-keyword-1">function()</div>
+        <div class="section-title-operator">{</div>
+        <div class="section-title-keyword-2">return</div>
+        <div class="title">WorkExperience</div>
+        <div class="section-title-operator">}</div>
+      </template>
+    </section-title>
     <div class="content-section">
       <ul class="options">
         <li v-for="company in companies" :key="company">
@@ -24,24 +28,32 @@
           </li>
         </ul>
       </div>
-      <div class="image-section">
-        <img class="main-image" />
-        <div class="image-reel">
-          <button></button>
-          <div class="image-square" v-for="photo in photos" :key="photo"></div>
-          <button></button>
-        </div>
-      </div>
     </div>
-    <div class="highlight-reel"></div>
+    <div class="image-section">
+      <image-carousel
+        :slides="photos"
+        :descriptions="[1, 2, 3]"
+      ></image-carousel>
+      <!-- <img class="main-image" /> -->
+      <!-- <div class="image-reel">
+        <button></button>
+        <div class="image-square" v-for="photo in photos" :key="photo"></div>
+        <button></button>
+      </div> -->
+    </div>
   </div>
 </template>
 <script>
+import imageCarousel from "@/components/image-carousel.vue";
+import image1 from "@/assets/avatar-background.svg";
+import image2 from "@/assets/IMG_9687_SparkVideo.gif";
+import image3 from "@/assets/6P8A8272_Original.jpg";
 import sectionTitle from "@/components/section-title.vue";
 
 export default {
   name: "work-experience",
   components: {
+    "image-carousel": imageCarousel,
     "section-title": sectionTitle
   },
   data: function() {
@@ -53,7 +65,7 @@ export default {
         "oiadioahif a jdfio ajdfadoifaj oidfja",
         "oiajdfioad adjoiadfjai adodjfioadf ioajdf"
       ],
-      photos: [1, 2, 3, 4]
+      photos: [image1, image2, image3]
     };
   },
   methods: {
@@ -88,16 +100,20 @@ $image-reel-square-width: $image-width * 0.15;
   display: none;
 }
 .main-image {
-  width: $image-width;
-  height: $image-height;
+  width: 100%;
+  height: 100%;
 }
 .image-section {
-  order: 3;
-  margin-left: auto;
+  // order: 3;
+  // margin-left: auto;
+  // display: flex;
+  // flex-flow: column nowrap;
+  // max-width: $image-width;
+  align-self: center;
+  width: 90%;
   display: flex;
-  flex-flow: column nowrap;
-  max-width: $image-width;
-  height: 25rem;
+  height: 30rem;
+  justify-content: center;
   align-items: center;
 }
 .image-reel {
@@ -128,7 +144,7 @@ li > div:hover {
 .content-section {
   display: flex;
   flex-flow: row wrap;
-  justify-content: flex-start;
+  justify-content: center;
   padding-left: 10px;
   color: $dark-text-color;
 }

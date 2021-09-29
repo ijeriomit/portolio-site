@@ -65,7 +65,6 @@ export default {
   },
   mounted: function() {
     let layers = this.$refs["wrapper"].childNodes;
-    console.log("layers: ", this.$refs["wrapper"]);
     // this.$refs["bg"].style = this.backgroundColor;
     // this.$refs["frame"].style = this.frameColor;
 
@@ -85,6 +84,7 @@ export default {
   height: inherit;
   width: inherit;
   position: absolute;
+  border-radius: 10px;
 }
 .background-layer {
   @extend .layer;
@@ -115,7 +115,8 @@ img {
   max-height: 100%;
   position: relative;
   border-style: solid;
-  border-width: 2px;
+  border-width: 0.5px;
   box-shadow: 10px 15px 20px rgba(25, 25, 25, 0.1);
+  border-radius: 20px;
 }
 </style>

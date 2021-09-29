@@ -1,53 +1,72 @@
 <template>
-  <div class="title-section">
-    <div :class="rightJustified ? 'right' : 'left'">{{ title }}</div>
-    <div class="title-line"></div>
+  <div class="section-title">
+    <slot name="section-title-content"> </slot>
+    <!-- <div class="brackets" style="order: 4;">{</div> -->
   </div>
 </template>
 <script>
 export default {
-  name: "section-title",
-  props: {
-    title: String,
-    rightJustified: Boolean
-  }
+  name: "section-title"
 };
 </script>
 <style lang="scss" scoped>
 @import "@/scss/variables.scss";
 
-.title-section {
+$horizontal-padding: 1.5rem;
+.section-title {
   font-size: $title-text-size;
-  align-self: flex-start;
+  align-self: center;
   padding-top: $title-top-offset;
   padding-bottom: $title-bottom-padding;
-  font-weight: bold;
+  font-weight: normal;
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
-  width: fit-content;
-}
-.title-section.right {
-  align-self: flex-end;
-}
-.right {
-  order: 2;
-}
-.left {
-  order: 0;
-}
-.title-line {
-  order: 1;
-  background-color: $quaternary-color;
-  height: 2px;
-  width: 400px;
-  position: relative;
-  margin-left: 20px;
-  margin-right: 20px;
-}
+  width: 100%;
+  color: black;
+  font-family: Consolas, monaco, monospace;
+  justify-content: center;
 
+  .section-title-line {
+    background-color: $primary-color;
+    height: 6px;
+    width: 35%;
+    margin-left: 20px;
+  }
+  .section-title-arrow {
+    color: $primary-color;
+    align-self: center;
+    position: relative;
+    bottom: 2px;
+    padding-left: $horizontal-padding;
+    padding-right: $horizontal-padding;
+    &:after {
+      content: ">";
+    }
+  }
+  .section-title-keyword-1 {
+    color: $quinary-color;
+    padding-left: $horizontal-padding;
+    padding-right: $horizontal-padding;
+  }
+  .section-title-keyword-2 {
+    color: $quaternary-color;
+    padding-left: $horizontal-padding;
+    padding-right: $horizontal-padding;
+  }
+  .section-title-operator {
+    color: $quinary-color;
+    padding-left: $horizontal-padding;
+    padding-right: $horizontal-padding;
+  }
+  .section-title-title {
+    font-weight: bold;
+    padding-left: $horizontal-padding;
+    padding-right: $horizontal-padding;
+  }
+}
 @media screen and (max-width: $small-screen-width) {
-  .title-section {
+  .section-title {
     font-size: $large-text-size;
   }
 }
