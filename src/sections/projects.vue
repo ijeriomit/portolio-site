@@ -5,7 +5,7 @@
         <div class="section-title-operator">(</div>
         <div class="section-title-title">Projects</div>
         <div class="section-title-operator">)</div>
-        <div class="section-title-line"></div>
+        <div style="width: 15%;" class="section-title-line"></div>
         <div class="section-title-arrow"></div>
         <div class="section-title-operator">{</div>
         <div class="section-title-keyword-1">Projects</div>
@@ -45,7 +45,6 @@ export default {
 <style lang="scss" scoped>
 .projects-wrapper {
   width: 90%;
-  height: 100%;
   align-self: center;
 }
 .content-section {

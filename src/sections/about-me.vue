@@ -2,7 +2,7 @@
   <div class="about-me-wrapper">
     <section-title>
       <template v-slot:section-title-content>
-        <div class="title">AboutMe:</div>
+        <div class="section-title-title">AboutMe:</div>
         <div class="section-title-keyword-1">function()</div>
         <div class="section-title-line"></div>
         <div class="section-title-arrow"></div>
@@ -72,14 +72,14 @@ $phone-image-height: 15rem;
 
 .about-me-wrapper {
   width: 97.25%;
-  height: 100%;
+  height: 90%;
   margin-top: 3rem;
 }
 
 .content-section {
   display: flex;
   flex-flow: row wrap;
-  height: 90%;
+  height: 85%;
   align-items: flex-start;
   justify-content: space-around;
 }

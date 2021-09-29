@@ -5,7 +5,7 @@
         <div class="section-title-keyword-1">function()</div>
         <div class="section-title-operator">{</div>
         <div class="section-title-keyword-2">return</div>
-        <div class="title">WorkExperience</div>
+        <div class="section-title-title">WorkExperience</div>
         <div class="section-title-operator">}</div>
       </template>
     </section-title>

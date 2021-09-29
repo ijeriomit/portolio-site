@@ -12,7 +12,10 @@ export default {
 <style lang="scss" scoped>
 @import "@/scss/variables.scss";
 
-$horizontal-padding: 1.5rem;
+$title-top-offset: 2rem;
+$title-bottom-padding: 2rem;
+$title-text-size: 3.75rem;
+
 .section-title {
   font-size: $title-text-size;
   align-self: center;
@@ -20,54 +23,78 @@ $horizontal-padding: 1.5rem;
   padding-bottom: $title-bottom-padding;
   font-weight: normal;
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
   align-items: center;
   width: 100%;
   color: black;
   font-family: Consolas, monaco, monospace;
   justify-content: center;
+  // background-color: ;
 
+  .spacing {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
   .section-title-line {
     background-color: $primary-color;
-    height: 6px;
+    height: 0.2rem;
     width: 35%;
     margin-left: 20px;
   }
   .section-title-arrow {
+    @extend .spacing;
     color: $primary-color;
-    align-self: center;
     position: relative;
-    bottom: 2px;
-    padding-left: $horizontal-padding;
-    padding-right: $horizontal-padding;
+    bottom: 3px;
+    align-self: center;
     &:after {
       content: ">";
     }
   }
   .section-title-keyword-1 {
+    @extend .spacing;
+
     color: $quinary-color;
-    padding-left: $horizontal-padding;
-    padding-right: $horizontal-padding;
   }
   .section-title-keyword-2 {
+    @extend .spacing;
+
     color: $quaternary-color;
-    padding-left: $horizontal-padding;
-    padding-right: $horizontal-padding;
   }
   .section-title-operator {
+    @extend .spacing;
+
     color: $quinary-color;
-    padding-left: $horizontal-padding;
-    padding-right: $horizontal-padding;
   }
   .section-title-title {
+    @extend .spacing;
+
     font-weight: bold;
-    padding-left: $horizontal-padding;
-    padding-right: $horizontal-padding;
   }
 }
 @media screen and (max-width: $small-screen-width) {
   .section-title {
     font-size: $large-text-size;
+    flex-flow: column nowrap;
+  }
+  .section-title-line {
+    display: none;
+  }
+  .section-title-arrow {
+    display: none;
+  }
+  .section-title-keyword-2 {
+    display: none;
+  }
+  .section-title-keyword-1 {
+    display: none;
+  }
+  .section-title-operator {
+    display: none;
+  }
+  .spacing {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }
 </style>
