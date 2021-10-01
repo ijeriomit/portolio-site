@@ -1,28 +1,56 @@
 <template>
   <div class="footer-wrapper">
-    <a class="social-icon"><i></i></a>
-    <a class="social-icon"><i></i></a>
-    <a class="social-icon"><i></i></a>
-    <div>
+    <div class="socials">
+      <a class="social-icon"><clipart :imageSrc="linkedin"></clipart></a>
+      <a class="social-icon"><clipart :imageSrc="github"></clipart></a>
+      <a class="social-icon"><clipart :imageSrc="medium"></clipart></a>
+    </div>
+    <div class="credit">
       <p>Developed and Designed <b /> by <b /> Ijeri Omitogun</p>
     </div>
   </div>
 </template>
 <script>
-export default {};
+import clipart from "../components/clipart.vue";
+import mediumIcon from "@/assets/medium.png";
+import githubIcon from "@/assets/github.svg";
+import linkedinIcon from "@/assets/linkedinpng.svg";
+export default {
+  components: {
+    clipart: clipart
+  },
+  data: function() {
+    return {
+      github: githubIcon,
+      medium: mediumIcon,
+      linkedin: linkedinIcon
+    };
+  }
+};
 </script>
 <style lang="scss" scoped>
 .footer-wrapper {
   flex-flow: row nowrap;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   height: 100%;
   width: 100%;
 }
+.socials {
+  display: flex;
+  margin-right: 2rem;
+}
+.credit {
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  position: absolute;
+}
 a {
   width: 50px;
   height: 50px;
-  background-color: white;
+  // background-color: white;
   display: block;
   margin-left: 60px;
 }

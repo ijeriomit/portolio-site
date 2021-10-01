@@ -16,16 +16,22 @@ export default {
 @import "@/scss/variables.scss";
 
 .clipart-bg {
-  // border-radius: 100%;
-  // background-color: rgba($color: #000000, $alpha: 0.9);
-  //   opacity: 70%;
+  position: relative;
+}
+.clipart-bg-circle {
+  border-radius: 100%;
+  background-color: rgba($color: #000000, $alpha: 0.9);
+}
+.clipart-bg-square {
+  border-radius: unset;
+  background-color: rgba($color: #000000, $alpha: 0.9);
 }
 .clipart {
-  height: 100%;
+  max-height: 100%;
   max-width: 100%;
   position: relative;
-  padding-left: 5px;
-  padding-right: 5px;
+  // padding-left: 5px;
+  // padding-right: 5px;
   //   opacity: 100%;
 }
 </style>

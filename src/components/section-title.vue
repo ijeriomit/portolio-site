@@ -14,7 +14,7 @@ export default {
 
 $title-top-offset: 2rem;
 $title-bottom-padding: 2rem;
-$title-text-size: 3.75rem;
+$title-text-size: 3rem;
 
 .section-title {
   font-size: $title-text-size;
@@ -32,13 +32,13 @@ $title-text-size: 3.75rem;
   // background-color: ;
 
   .spacing {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
   }
   .section-title-line {
     background-color: $primary-color;
     height: 0.2rem;
-    width: 35%;
+    width: 30%;
     margin-left: 20px;
   }
   .section-title-arrow {

@@ -5,7 +5,7 @@
         <img style="height: 100%; width: 100%;" :src="logo" />
       </a>
       <div class="title">
-        class IO:
+        IO
       </div>
     </div>
 

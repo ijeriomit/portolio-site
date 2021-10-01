@@ -34,13 +34,6 @@
         :imageSrc="image"
         class="image-frame"
       ></layered-frame>
-      <!-- <div class="image-section">
-        <div class="background-shadow"></div>
-        <div class="image-box">
-          <img ref="image" src="@/assets/6P8A8200_Original.jpg" />
-        </div>
-        <div ref="image-shadow" class="titled-image-shadow"></div> -->
-      <!-- </div> -->
     </div>
   </div>
 </template>

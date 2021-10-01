@@ -14,31 +14,45 @@
     </section-title>
     <div class="content-section">
       <div class="folder">
-        <button></button>
+        <clipart class="button" :imageSrc="webDevImg"></clipart>
         Web Dev
       </div>
       <div class="folder">
-        <button></button>
-        Unity
+        <clipart class="button" :imageSrc="unityImg"></clipart>
+        Game Dev
       </div>
       <div class="folder">
-        <button></button>
+        <clipart class="button" :imageSrc="imageProcessingImg"></clipart>
         Image and Video Processing
       </div>
       <div class="folder">
-        <button></button>
-        Other
+        <clipart class="button" :imageSrc="codingImg"></clipart>
+        Python
       </div>
     </div>
   </div>
 </template>
 <script>
 import sectionTitle from "@/components/section-title.vue";
+import clipart from "../components/clipart.vue";
+import imageProcessingIcon from "@/assets/vision-logo.png";
+import unityIcon from "@/assets/unity.png";
+import webDevIcon from "@/assets/coding-icon-2.png";
+import codingIcon from "@/assets/coding-icon.jpg";
 
 export default {
   name: "projects",
+  data: function() {
+    return {
+      unityImg: unityIcon,
+      codingImg: codingIcon,
+      webDevImg: webDevIcon,
+      imageProcessingImg: imageProcessingIcon
+    };
+  },
   components: {
-    "section-title": sectionTitle
+    "section-title": sectionTitle,
+    clipart: clipart
   }
 };
 </script>
@@ -61,8 +75,7 @@ export default {
   height: 80px;
   justify-content: space-between;
 }
-button {
-  height: 50px;
-  width: 50px;
+.button {
+  width: 80px;
 }
 </style>

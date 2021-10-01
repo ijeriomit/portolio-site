@@ -1,6 +1,6 @@
 <template>
   <div class="work-experience-wrapper">
-    <section-title>
+    <section-title style="width: 90%;">
       <template v-slot:section-title-content>
         <div class="section-title-keyword-1">function()</div>
         <div class="section-title-operator">{</div>
@@ -28,18 +28,11 @@
           </li>
         </ul>
       </div>
-    </div>
-    <div class="image-section">
       <image-carousel
+        class="image-section"
         :slides="photos"
         :descriptions="[1, 2, 3]"
       ></image-carousel>
-      <!-- <img class="main-image" /> -->
-      <!-- <div class="image-reel">
-        <button></button>
-        <div class="image-square" v-for="photo in photos" :key="photo"></div>
-        <button></button>
-      </div> -->
     </div>
   </div>
 </template>
@@ -99,36 +92,14 @@ $image-reel-square-width: $image-width * 0.15;
 .options::-webkit-scrollbar {
   display: none;
 }
-.main-image {
-  width: 100%;
-  height: 100%;
-}
+
 .image-section {
-  // order: 3;
-  // margin-left: auto;
-  // display: flex;
-  // flex-flow: column nowrap;
-  // max-width: $image-width;
-  align-self: center;
-  width: 90%;
-  display: flex;
-  height: 30rem;
-  justify-content: center;
-  align-items: center;
+  order: 3;
+  padding-left: 25px;
+
+  padding-right: 25px;
 }
-.image-reel {
-  position: relative;
-  top: 20px;
-  display: flex;
-  width: $image-width;
-  flex-flow: row nowrap;
-  justify-content: space-around;
-}
-.image-square {
-  height: $image-reel-square-height;
-  width: $image-reel-square-width;
-  background-color: grey;
-}
+
 li > div {
   cursor: pointer;
   display: block;
@@ -145,11 +116,10 @@ li > div:hover {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  padding-left: 10px;
   color: $dark-text-color;
 }
 .content-text-section {
-  padding-left: 50px;
+  padding-left: 15px;
   padding-right: 50px;
   order: 2;
   text-align: center;
