@@ -6,6 +6,10 @@
         v-for="(slide, index) in slideShow"
         :key="index"
         v-show="slide.show"
+        :style="{
+          width: photoWidth + sizeType,
+          height: photoHeight + sizeType
+        }"
         class="fade"
       >
         <img :src="slide.image" style="width:100%" />
@@ -46,6 +50,15 @@ export default {
     descriptions: {
       type: Array,
       required: true
+    },
+    photoHeight: {
+      type: Number
+    },
+    photoWidth: {
+      type: Number
+    },
+    sizeType: {
+      type: String
     }
   },
   beforeMount: function() {

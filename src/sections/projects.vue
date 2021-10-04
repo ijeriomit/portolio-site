@@ -15,19 +15,19 @@
     <div class="content-section">
       <div class="folder">
         <clipart class="button" :imageSrc="webDevImg"></clipart>
-        Web Dev
+        <div>Web Dev</div>
       </div>
       <div class="folder">
         <clipart class="button" :imageSrc="unityImg"></clipart>
-        Game Dev
+        <div>Game Dev</div>
       </div>
       <div class="folder">
         <clipart class="button" :imageSrc="imageProcessingImg"></clipart>
-        Image and Video Processing
+        <div>Image and Video Processing</div>
       </div>
       <div class="folder">
         <clipart class="button" :imageSrc="codingImg"></clipart>
-        Python
+        <div>Python</div>
       </div>
     </div>
   </div>
@@ -72,8 +72,15 @@ export default {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  height: 80px;
-  justify-content: space-between;
+  text-align: center;
+  justify-content: center;
+  width: 300px;
+  font-size: 1.25rem;
+  font-weight: bold;
+  height: 200px;
+  font-family: Consolas, monaco, monospace;
+  background-color: #008753cf;
+  border-radius: 30px;
 }
 .button {
   width: 80px;

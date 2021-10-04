@@ -32,15 +32,18 @@
         class="image-section"
         :slides="photos"
         :descriptions="[1, 2, 3]"
+        :photoHeight="20"
+        :photoWidth="20"
+        :sizeType="'rem'"
       ></image-carousel>
     </div>
   </div>
 </template>
 <script>
 import imageCarousel from "@/components/image-carousel.vue";
-import image1 from "@/assets/avatar-background.svg";
+import image1 from "@/assets/HMI.png";
 import image2 from "@/assets/IMG_9687_SparkVideo.gif";
-import image3 from "@/assets/6P8A8272_Original.jpg";
+import image3 from "@/assets/aquanaut.png";
 import sectionTitle from "@/components/section-title.vue";
 
 export default {

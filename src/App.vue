@@ -115,7 +115,7 @@ export default {
 @import "@/scss/variables.scss";
 
 $page-height: $header-height + $small-section-height + $section-height +
-  $section-height + $section-height + $section-height + $footer-height;
+  $section-height + $large-section-height + $section-height + $footer-height;
 
 #app {
   height: $page-height;
@@ -145,7 +145,7 @@ $page-height: $header-height + $small-section-height + $section-height +
   grid-template-columns: 10% 80% 10%;
   grid-template-rows:
     ($small-section-height + $header-height) $section-height $section-height
-    $section-height
+    $large-section-height
     $section-height $footer-height;
 }
 html {
