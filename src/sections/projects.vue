@@ -13,32 +13,18 @@
       </template>
     </section-title>
     <div class="content-section">
-      <div class="folder">
-        <clipart class="button" :imageSrc="webDevImg"></clipart>
-        <div>Web Dev</div>
-      </div>
-      <div class="folder">
-        <clipart class="button" :imageSrc="unityImg"></clipart>
-        <div>Game Dev</div>
-      </div>
-      <div class="folder">
-        <clipart class="button" :imageSrc="imageProcessingImg"></clipart>
-        <div>Image and Video Processing</div>
-      </div>
-      <div class="folder">
-        <clipart class="button" :imageSrc="codingImg"></clipart>
-        <div>Python</div>
-      </div>
+      <project-grid :gridData="projectsSections"></project-grid>
     </div>
   </div>
 </template>
 <script>
 import sectionTitle from "@/components/section-title.vue";
-import clipart from "../components/clipart.vue";
 import imageProcessingIcon from "@/assets/vision-logo.png";
 import unityIcon from "@/assets/unity.png";
 import webDevIcon from "@/assets/coding-icon-2.png";
 import codingIcon from "@/assets/coding-icon.jpg";
+import projectGrid from "@/components/project-grid";
+import ProjectGrid from "../components/project-grid.vue";
 
 export default {
   name: "projects",
@@ -47,12 +33,129 @@ export default {
       unityImg: unityIcon,
       codingImg: codingIcon,
       webDevImg: webDevIcon,
-      imageProcessingImg: imageProcessingIcon
+      imageProcessingImg: imageProcessingIcon,
+      projectsSections: [
+        {
+          title: "Web Dev",
+          icon: webDevIcon,
+          projects: [
+            {
+              desc: "",
+              title: "project1",
+              languages: ["Python, ROS"],
+              image: webDevIcon
+            },
+            {
+              desc: "",
+              title: "project2",
+              languages: ["Python, ROS"],
+              image: webDevIcon
+            },
+            {
+              desc: "",
+              title: "project3",
+              languages: ["Python, ROS"],
+              image: webDevIcon
+            },
+            {
+              desc: "",
+              title: "project4",
+              languages: ["Python, ROS"],
+              image: webDevIcon
+            },
+            {
+              desc: "",
+              title: "project5",
+              languages: ["Python, ROS"],
+              image: webDevIcon
+            },
+            {
+              desc: "",
+              title: "project3",
+              languages: ["Python, ROS"],
+              image: imageProcessingIcon
+            }
+          ]
+        },
+        {
+          title: "Game Dev",
+          icon: unityIcon,
+          projects: [
+            {
+              desc: "",
+              title: "project1",
+              languages: ["Python, ROS"],
+              image: unityIcon
+            },
+            {
+              desc: "",
+              title: "project2",
+              languages: ["Python, ROS"],
+              image: unityIcon
+            },
+            {
+              desc: "",
+              title: "project3",
+              languages: ["Python, ROS"],
+              image: unityIcon
+            }
+          ]
+        },
+        {
+          title: "Image/Video ProcessinG",
+          icon: imageProcessingIcon,
+          projects: [
+            {
+              desc: "",
+              title: "project1",
+              languages: ["Python, ROS"],
+              image: imageProcessingIcon
+            },
+            {
+              desc: "",
+              title: "project2",
+              languages: ["Python, ROS"],
+              image: imageProcessingIcon
+            },
+            {
+              desc: "",
+              title: "project3",
+              languages: ["Python, ROS"],
+              image: imageProcessingIcon
+            }
+          ]
+        },
+        {
+          title: "Python",
+          icon: codingIcon,
+          projects: [
+            {
+              desc: "",
+              title: "project1",
+              languages: ["Python, ROS"],
+              image: codingIcon
+            },
+            {
+              desc: "",
+              title: "project2",
+              languages: ["Python, ROS"],
+              image: codingIcon
+            },
+            {
+              desc: "",
+              title: "project3",
+              languages: ["Python, ROS"],
+              image: webDevIcon
+            }
+          ]
+        }
+      ]
     };
   },
   components: {
     "section-title": sectionTitle,
-    clipart: clipart
+    "project-grid": projectGrid,
+    ProjectGrid
   }
 };
 </script>
@@ -70,6 +173,7 @@ export default {
 }
 .folder {
   display: flex;
+  display: none;
   flex-flow: column nowrap;
   align-items: center;
   text-align: center;
