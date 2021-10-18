@@ -41,7 +41,7 @@ export default {
           projects: [
             {
               desc: "",
-              title: "project1",
+              title: "Epoch",
               languages: ["Python, ROS"],
               image: webDevIcon
             },
