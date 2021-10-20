@@ -15,12 +15,12 @@
         }"
       />
     </div>
-    <!-- <div
+    <div
       :style="{
         borderColor: frameColor
       }"
       class="floating-frame-layer"
-    ></div> -->
+    ></div>
   </div>
 </template>
 <script>
@@ -114,9 +114,9 @@ img {
   max-width: 100%;
   max-height: 100%;
   position: relative;
-  border-style: solid;
+  // border-style: solid;
   border-width: 0.5px;
-  box-shadow: 10px 15px 20px rgba(25, 25, 25, 0.1);
-  border-radius: 20px;
+  // box-shadow: 10px 15px 20px rgba(25, 25, 25, 0.1);
+  // border-radius: 20px;
 }
 </style>

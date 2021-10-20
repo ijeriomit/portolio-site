@@ -10,7 +10,7 @@
         style=" grid-row: 2/2; justify-content: center;"
         class="secondary-background-block"
       >
-        <img style=" width: 700px; align-self: flex-end;" src="mattFarImg" />
+        <img style=" width: 700px; align-self: flex-end;" :src="mattFarImg" />
       </div>
       <div
         v-show="true"
@@ -34,7 +34,10 @@
       >
         <workexp class="section-wrapper"></workexp>
       </div>
-      <div class="secondary-background-block" style="grid-row: 4/4;"></div>
+      <div
+        class="secondary-background-block"
+        style="grid-row: 4/4;  border-bottom-width: 15px;"
+      ></div>
       <div
         v-show="true"
         id="PROJECTS"
@@ -44,15 +47,11 @@
         <projects class="section-wrapper"></projects>
       </div>
       <div
-        class="half-background-block"
-        style="grid-row:5/5; align-self: flex-start; background-color: #FFFFFF"
+        class="primary-background-block"
+        style="grid-row:5/5; align-self: flex-start; background-color: #008753; border:none; "
       >
         <img src="phoneImg" />
       </div>
-      <div
-        class="half-background-block"
-        style="grid-row:5/5; align-self: flex-start; background-color: #008753; border:none;"
-      ></div>
       <div
         v-show="true"
         id="CONTACT-ME"
@@ -196,9 +195,10 @@ body {
   @extend .background-block;
   background-color: $secondary-color;
   color: $primary-color;
-  border-top: #f1f1f1 solid 30px;
+  border-top: #f1f1f1 solid 15px;
   border-left: #f1f1f1 solid 15px;
   border-right: #f1f1f1 solid 15px;
+  border-bottom: #f1f1f1 solid 15px;
 }
 .section-wrapper {
   display: flex;

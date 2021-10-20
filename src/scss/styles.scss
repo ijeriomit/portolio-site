@@ -26,7 +26,14 @@
 .scrollbar{
 
 }
-.label-box{}
+.text-box{
+    background-color: $primary-color;
+    border-radius: 30px;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
 img{
     max-width: 100%;

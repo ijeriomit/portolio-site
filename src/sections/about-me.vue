@@ -9,22 +9,37 @@
       </template>
     </section-title>
     <div class="content-section">
-      <div class="text-content">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum.""Sed ut perspiciatis unde omnis iste natus
-        error sit voluptatem accusantium doloremque laudantium, totam rem
-        aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto
-        beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia
-        voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni
-        dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam
-        est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit,
-        sed quia non numquam eius modi tempora incidunt ut labore et dolore
-        magnam aliquam quaerat voluptatem. Ut enim ad minima veniam,
+      <div class="text-boxes">
+        <text-box class="desc-content">
+          <template v-slot:text-slot>
+            <div class="text">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu fugiat
+              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
+              sunt in culpa qui officia deserunt mollit anim id est
+              laborum.""Sed ut perspiciatis unde omnis iste natus error sit
+              voluptatem accusantium doloremque laudantium, totam rem aperiam,
+              eaque ipsa quae ab illo inventore veritatis et quasi architecto
+              beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia
+              voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur
+              magni dolores eos qui ratione voluptatem sequi nesciunt.
+            </div>
+          </template>
+        </text-box>
+        <text-box class="skills-content">
+          <template class="text" v-slot:text-slot>
+            <div>Recent Technologies:</div>
+            <div>Javascript</div>
+            <div>Python</div>
+            <div>Java</div>
+            <div>C#</div>
+            <div>Vue</div>
+            <div>ROS</div>
+          </template>
+        </text-box>
       </div>
       <layered-frame
         :borderColor="'#4F3E3E'"
@@ -40,6 +55,7 @@
 <script>
 import layeredImageFrame from "@/components/layered-image-frame";
 import sectionTitle from "@/components/section-title.vue";
+import textBox from "@/components/text-box.vue";
 
 import image from "@/assets/ij-floatin.png";
 export default {
@@ -51,7 +67,8 @@ export default {
   },
   components: {
     "layered-frame": layeredImageFrame,
-    "section-title": sectionTitle
+    "section-title": sectionTitle,
+    "text-box": textBox
   }
 };
 </script>
@@ -76,16 +93,30 @@ $phone-image-height: 15rem;
   align-items: flex-start;
   justify-content: space-around;
 }
-.text-content {
-  width: 50%;
-  align-self: baseline;
-  margin-top: 2.5vw;
+.desc-content {
+  width: 30rem;
+  height: 30rem;
+  color: $dark-text-color;
+  font-size: $text-size;
+  background-color: $primary-color;
+  order: 0;
+}
+.text-boxes {
+  display: flex;
+  flex-flow: row wrap;
+  width: 65%;
+  justify-content: space-around;
+}
+.skills-content {
+  width: 20rem;
+  height: 12.5rem;
   color: $dark-text-color;
   font-size: $text-size;
   order: 1;
+  // border-radius: 10%;
 }
 .image-frame {
-  order: 1;
+  order: 2;
   width: $image-width;
   height: $image-height;
 }

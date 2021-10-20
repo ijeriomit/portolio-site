@@ -23,9 +23,8 @@
     <div class="project-content">
       <h2 class="project-content-title">{{ gridData[0].projects[0].title }}</h2>
 
-      <!-- <div class="project-content-section"> -->
       <img class="project-image" :src="gridData[0].projects[0].image" />
-      <div class="project-text-box">
+      <div class="project-text">
         <p class="project-description lorem-ipsum-1"></p>
         <div class="project-links"><button></button> <button></button></div>
         <div class="project-languages">
@@ -121,7 +120,7 @@ export default {
   overflow-y: scroll;
   overflow-x: hidden;
 }
-.project-text-box {
+.project-text {
   align-self: center;
   grid-column: 1/2;
   display: flex;
@@ -159,16 +158,8 @@ export default {
 }
 
 .project-languages {
-  // grid-row: 2;
-  // grid-column: 1/2;
-  // justify-self: end;
-  // align-self: center;
 }
 .project-links {
-  // grid-row: 2;
-  // grid-column: 1/2;
-  // justify-self: start;
-  // align-self: center;
 }
 .project-label {
   @extend .section-label;
