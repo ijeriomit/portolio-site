@@ -169,7 +169,7 @@ export default {
   flex-flow: row wrap;
   justify-content: space-around;
   align-items: center;
-  height: 60%;
+  height: 75%;
 }
 .folder {
   display: flex;

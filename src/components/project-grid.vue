@@ -10,28 +10,28 @@
       <div class="section-icon"><img :src="section.icon" /></div>
       <h3 class="section-title">{{ section.title }}</h3>
     </div>
-    <div v-if="selectedProject != null" class="project-list">
+    <div class="project-list">
       <div
         class="project-label center-x-axis"
-        v-for="(project, index) in selectedSection.projects"
+        v-for="(project, index) in gridData[0].projects"
         :key="index"
       >
         <div class="section-icon"><img :src="project.image" /></div>
         <h4 class="section-title">{{ project.title }}}</h4>
       </div>
     </div>
-    <div v-if="selectedProject != null" class="project-content">
-      <h2 class="project-content-title">{{ selectedProject.title }}</h2>
+    <div class="project-content">
+      <h2 class="project-content-title">{{ gridData[0].projects[0].title }}</h2>
 
       <!-- <div class="project-content-section"> -->
-      <img class="project-image" :src="selectedProject.image" />
+      <img class="project-image" :src="gridData[0].projects[0].image" />
       <div class="project-text-box">
         <p class="project-description lorem-ipsum-1"></p>
         <div class="project-links"><button></button> <button></button></div>
         <div class="project-languages">
           <div
             class="project-language"
-            v-for="(language, index) in selectedProject.languages"
+            v-for="(language, index) in gridData[0].projects[0].languages"
             :key="index"
           >
             {{ language }}
@@ -56,7 +56,6 @@ export default {
     };
   },
   methods: {
-    makeGridDataObj: function() {},
     selectSection: function(section) {
       this.selectedSection = section;
       this.selectedProject = section.projects[0];
@@ -76,7 +75,7 @@ export default {
 
 .grid-wrapper {
   width: 100%;
-  height: 90%;
+  height: 100%;
   display: grid;
   grid-template-columns: 22.5% 22.5% 22.5% 22.5%;
   grid-template-rows: 22.5% 75%;
@@ -97,10 +96,10 @@ export default {
   align-items: center;
   text-align: center;
   justify-content: center;
-  width: 100%;
+  width: 250px;
   font-size: 1.25rem;
   font-weight: bold;
-  height: 100%;
+  height: 200px;
   font-family: $vs-code-font;
   background-color: $primary-color;
   border-radius: 30px;
@@ -120,15 +119,22 @@ export default {
   border-radius: 30px;
 
   overflow-y: scroll;
+  overflow-x: hidden;
+}
+.project-text-box {
+  align-self: center;
+  grid-column: 1/2;
+  display: flex;
+  flex-flow: column;
 }
 .project-image {
   max-width: 90%;
   grid-row: 2;
   grid-column: 2/2;
+  align-self: center;
 }
 .project-description {
   grid-row: 2;
-  grid-column: 1/2;
 }
 .project-content {
   grid-area: project-content;
@@ -153,21 +159,21 @@ export default {
 }
 
 .project-languages {
-  grid-row: 2;
-  grid-column: 1/2;
-  justify-self: end;
-  align-self: center;
+  // grid-row: 2;
+  // grid-column: 1/2;
+  // justify-self: end;
+  // align-self: center;
 }
 .project-links {
-  grid-row: 2;
-  grid-column: 1/2;
-  justify-self: start;
-  align-self: center;
+  // grid-row: 2;
+  // grid-column: 1/2;
+  // justify-self: start;
+  // align-self: center;
 }
 .project-label {
   @extend .section-label;
-  width: 13vw;
-  height: 12vw;
+  width: 225px;
+  height: 175px;
   background-color: $quinary-color;
   cursor: pointer;
   margin: 5px;

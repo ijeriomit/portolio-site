@@ -24,7 +24,7 @@ $title-top-offset: 2rem;
 
 $header-height: 100px;
 $section-height: 900px;
-$large-section-height: 1800px;
+$large-section-height: ($section-height / 3) * 4;
 $small-section-height: ($section-height / 3) * 2 + 50px;
 $footer-height: 100px;
 // $subtitle-text-size: 50px;

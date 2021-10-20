@@ -41,7 +41,7 @@
 import layeredImageFrame from "@/components/layered-image-frame";
 import sectionTitle from "@/components/section-title.vue";
 
-import image from "@/assets/6P8A8200_Original.jpg";
+import image from "@/assets/ij-floatin.png";
 export default {
   name: "About-Me",
   data: function() {

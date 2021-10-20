@@ -1,9 +1,9 @@
 <template>
   <div class="footer-wrapper">
     <div class="socials">
-      <a class="social-icon"><clipart :imageSrc="linkedin"></clipart></a>
-      <a class="social-icon"><clipart :imageSrc="github"></clipart></a>
-      <a class="social-icon"><clipart :imageSrc="medium"></clipart></a>
+      <a class="social-icon"><img :src="linkedin"/></a>
+      <a class="social-icon"><img :src="github"/></a>
+      <a class="social-icon"><img :src="medium"/></a>
     </div>
     <div class="credit">
       <p>Developed and Designed <b /> by <b /> Ijeri Omitogun</p>
@@ -11,14 +11,10 @@
   </div>
 </template>
 <script>
-import clipart from "../components/clipart.vue";
 import mediumIcon from "@/assets/medium.png";
 import githubIcon from "@/assets/github.svg";
 import linkedinIcon from "@/assets/linkedinpng.svg";
 export default {
-  components: {
-    clipart: clipart
-  },
   data: function() {
     return {
       github: githubIcon,

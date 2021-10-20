@@ -10,11 +10,7 @@
         style=" grid-row: 2/2; justify-content: center;"
         class="secondary-background-block"
       >
-        <clipart
-          v-show="true"
-          style=" width: 700px; align-self: flex-end;"
-          :imageSrc="mattFarImg"
-        ></clipart>
+        <img style=" width: 700px; align-self: flex-end;" src="mattFarImg" />
       </div>
       <div
         v-show="true"
@@ -27,7 +23,9 @@
       <div
         class="secondary-background-block"
         style="grid-row: 3/3; justify-content: flex-start;"
-      ></div>
+      >
+        <img class="gear-image" src="@/assets/single-gear.png" />
+      </div>
       <div
         v-show="true"
         id="WORK-EXPERIENCE"
@@ -36,13 +34,7 @@
       >
         <workexp class="section-wrapper"></workexp>
       </div>
-      <div class="secondary-background-block" style="grid-row: 4/4;">
-        <clipart
-          v-show="true"
-          style=" width: 450px; align-self: flex-start; top: 2rem;"
-          :imageSrc="gearsImg"
-        ></clipart>
-      </div>
+      <div class="secondary-background-block" style="grid-row: 4/4;"></div>
       <div
         v-show="true"
         id="PROJECTS"
@@ -55,11 +47,11 @@
         class="half-background-block"
         style="grid-row:5/5; align-self: flex-start; background-color: #FFFFFF"
       >
-        <clipart v-show="true" :imageSrc="phoneImg"></clipart>
+        <img src="phoneImg" />
       </div>
       <div
         class="half-background-block"
-        style="grid-row:5/5; align-self: flex-end; background-color: #008753; border:none;"
+        style="grid-row:5/5; align-self: flex-start; background-color: #008753; border:none;"
       ></div>
       <div
         v-show="true"
@@ -85,8 +77,7 @@ import workExperience from "./sections/work-experience.vue";
 import projects from "./sections/projects.vue";
 import contactMe from "./sections/contact-me.vue";
 import Footer from "./components/footer.vue";
-import clipart from "./components/clipart.vue";
-import gears from "@/assets/gears.gif";
+import gears from "@/assets/single-gear.png";
 import mattFar from "@/assets/Mattfarley-background.svg";
 import phone from "@/assets/phone.svg";
 
@@ -99,8 +90,7 @@ export default {
     workexp: workExperience,
     projects: projects,
     "contact-me": contactMe,
-    Footer: Footer,
-    clipart: clipart
+    Footer: Footer
   },
   data: function() {
     return {
@@ -113,6 +103,7 @@ export default {
 </script>
 <style lang="scss">
 @import "@/scss/variables.scss";
+@import "@/scss/styles.scss";
 
 $page-height: $header-height + $small-section-height + $section-height +
   $section-height + $large-section-height + $section-height + $footer-height;
@@ -224,5 +215,12 @@ body {
 }
 body::-webkit-scrollbar {
   display: none;
+}
+.gear-image {
+  width: 30vw;
+  height: 30vw;
+  align-self: flex-start;
+  left: -16vw;
+  position: absolute;
 }
 </style>
