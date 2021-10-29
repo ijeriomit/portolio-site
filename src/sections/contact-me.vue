@@ -1,45 +1,48 @@
 <template>
-  <div class="contact-me-wrapper">
-    <!-- <div class="title">Contact Me</div> -->
-    <form>
-      <div
-        style="display: flex; flex-flow: row nowrap; justify-content: space-between;"
-      >
-        <div class="field" style="width: 45%;">
-          <div class="field-title">Name</div>
+  <text-box class="contact-me-wrapper">
+    <template v-slot:text-slot>
+      <form>
+        <div
+          style="display: flex; flex-flow: row nowrap; justify-content: space-between;"
+        >
+          <div class="field" style="width: 45%;">
+            <div class="field-title">Name</div>
+            <input class="field-input" />
+          </div>
+          <div class="field" style="width: 45%;">
+            <div class="field-title">Email</div>
+            <input class="field-input" />
+          </div>
+        </div>
+        <div class="field" style="width: 100%;">
+          <div class="field-title">Subject Line</div>
           <input class="field-input" />
         </div>
-        <div class="field" style="width: 45%;">
-          <div class="field-title">Email</div>
-          <input class="field-input" />
+        <div class="field" style="width: 100%;">
+          <div class="field-title">Message</div>
+          <input class="message field-input" />
         </div>
-      </div>
-      <div class="field" style="width: 100%;">
-        <div class="field-title">Subject Line</div>
-        <input class="field-input" />
-      </div>
-      <div class="field" style="width: 100%;">
-        <div class="field-title">Message</div>
-        <input class="message field-input" />
-      </div>
-    </form>
-  </div>
+      </form>
+    </template>
+  </text-box>
 </template>
 <script>
+import textBox from "@/components/text-box.vue";
+
 export default {
-  name: "contact-me"
+  name: "contact-me",
+  components: {
+    "text-box": textBox
+  }
 };
 </script>
 <style lang="scss" scoped>
 @import "@/scss/variables.scss";
 
 .contact-me-wrapper {
-  height: 77.25%;
-  border-radius: 20%;
+  height: 75%;
   width: 75%;
   align-self: center;
-  align-items: center;
-  justify-content: center;
   background-color: $tertiary-color;
   color: $secondary-color;
   font-size: $text-size;

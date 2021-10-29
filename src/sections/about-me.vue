@@ -31,13 +31,7 @@
         </text-box>
         <text-box class="skills-content">
           <template class="text" v-slot:text-slot>
-            <div>Recent Technologies:</div>
-            <div>Javascript</div>
-            <div>Python</div>
-            <div>Java</div>
-            <div>C#</div>
-            <div>Vue</div>
-            <div>ROS</div>
+            Recent Technologies: Javascript Python Java C# Vue ROS
           </template>
         </text-box>
       </div>
@@ -97,7 +91,6 @@ $phone-image-height: 15rem;
   width: 30rem;
   height: 30rem;
   color: $dark-text-color;
-  font-size: $text-size;
   background-color: $primary-color;
   order: 0;
 }
@@ -111,9 +104,7 @@ $phone-image-height: 15rem;
   width: 20rem;
   height: 12.5rem;
   color: $dark-text-color;
-  font-size: $text-size;
   order: 1;
-  // border-radius: 10%;
 }
 .image-frame {
   order: 2;

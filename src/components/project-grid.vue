@@ -1,24 +1,28 @@
 <template>
   <div class="grid-wrapper">
-    <div
+    <text-box
       v-for="(section, index) in gridData"
       :key="index"
       @click="selectSection(section)"
       class="section-label"
       :class="[fadeSection(section) ? 'fade' : '']"
     >
-      <div class="section-icon"><img :src="section.icon" /></div>
-      <h3 class="section-title">{{ section.title }}</h3>
-    </div>
+      <template v-slot:text-slot>
+        <div class="section-icon"><img :src="section.icon" /></div>
+        <h3 class="section-title">{{ section.title }}</h3>
+      </template>
+    </text-box>
     <div class="project-list">
-      <div
+      <text-box
         class="project-label center-x-axis"
         v-for="(project, index) in gridData[0].projects"
         :key="index"
       >
-        <div class="section-icon"><img :src="project.image" /></div>
-        <h4 class="section-title">{{ project.title }}}</h4>
-      </div>
+        <template v-slot:text-slot>
+          <div class="section-icon"><img :src="project.image" /></div>
+          <h4 class="section-title">{{ project.title }}}</h4>
+        </template>
+      </text-box>
     </div>
     <div class="project-content">
       <h2 class="project-content-title">{{ gridData[0].projects[0].title }}</h2>
@@ -41,12 +45,17 @@
   </div>
 </template>
 <script>
+import textBox from "@/components/text-box.vue";
+
 export default {
   name: "project-grid",
   props: {
     gridData: {
       type: Array
     }
+  },
+  components: {
+    "text-box": textBox
   },
   data: function() {
     return {
@@ -90,18 +99,14 @@ export default {
 }
 .section-label {
   grid-row: 1;
-  display: flex;
   flex-flow: column nowrap;
-  align-items: center;
   text-align: center;
-  justify-content: center;
   width: 250px;
   font-size: 1.25rem;
   font-weight: bold;
   height: 200px;
   font-family: $vs-code-font;
   background-color: $primary-color;
-  border-radius: 30px;
   cursor: pointer;
 }
 .section-icon > img {
