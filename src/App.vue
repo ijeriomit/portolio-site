@@ -56,8 +56,17 @@
         v-show="true"
         id="CONTACT-ME"
         class="content-block"
-        style="grid-row: 5/5;"
+        style="grid-row: 5/5; flex-flow: column nowrap;"
       >
+        <section-title>
+          <template v-slot:section-title-content>
+            <div class="section-title-keyword-1-alt">await</div>
+            <div class="section-title-keyword-2-alt">fetch</div>
+            <div class="section-title-operator-alt">(</div>
+            <div class="section-title-title-alt">Contact Me</div>
+            <div class="section-title-operator-alt">)</div>
+          </template>
+        </section-title>
         <contact-me class="section-wrapper"></contact-me>
       </div>
       <div class="footer" style="grid-row: 6/6;"></div>
@@ -79,6 +88,7 @@ import Footer from "./components/footer.vue";
 import gears from "@/assets/single-gear.png";
 import mattFar from "@/assets/Mattfarley-background.svg";
 import phone from "@/assets/phone.svg";
+import sectionTitle from "@/components/section-title.vue";
 
 export default {
   name: "homepage",
@@ -89,7 +99,8 @@ export default {
     workexp: workExperience,
     projects: projects,
     "contact-me": contactMe,
-    Footer: Footer
+    Footer: Footer,
+    "section-title": sectionTitle
   },
   data: function() {
     return {

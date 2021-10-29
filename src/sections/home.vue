@@ -53,7 +53,7 @@ export default {
   padding-top: 1.5rem;
   color: $secondary-color;
   order: 1;
-  font: $vs-code-font;
+  font-family: $vs-code-font;
 }
 .name {
   padding-bottom: 1.5rem;

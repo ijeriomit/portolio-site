@@ -1,42 +1,42 @@
 <template>
   <div class="contact-me-wrapper">
-    <section-title>
-      <template v-slot:section-title-content>
-        <div class="section-title-keyword-1">function()</div>
-        <div class="section-title-operator">{</div>
-        <div class="section-title-keyword-2">return</div>
-        <div class="section-title-title">WorkExperience</div>
-        <div class="section-title-operator">}</div>
-      </template>
-    </section-title>
-    <div class="title">Contact Me</div>
+    <!-- <div class="title">Contact Me</div> -->
     <form>
-      <div>Reason For Reaching Out</div>
-      <select />
-      <div>Subject Line</div>
-      <input />
-      <div>Message</div>
-      <input class="message" />
+      <div
+        style="display: flex; flex-flow: row nowrap; justify-content: space-between;"
+      >
+        <div class="field" style="width: 45%;">
+          <div class="field-title">Name</div>
+          <input class="field-input" />
+        </div>
+        <div class="field" style="width: 45%;">
+          <div class="field-title">Email</div>
+          <input class="field-input" />
+        </div>
+      </div>
+      <div class="field" style="width: 100%;">
+        <div class="field-title">Subject Line</div>
+        <input class="field-input" />
+      </div>
+      <div class="field" style="width: 100%;">
+        <div class="field-title">Message</div>
+        <input class="message field-input" />
+      </div>
     </form>
   </div>
 </template>
 <script>
-import sectionTitle from "@/components/section-title.vue";
-
 export default {
-  name: "contact-me",
-  components: {
-    "section-title": sectionTitle
-  }
+  name: "contact-me"
 };
 </script>
 <style lang="scss" scoped>
 @import "@/scss/variables.scss";
 
 .contact-me-wrapper {
-  height: 80%;
-  border-radius: 25%;
-  width: 85%;
+  height: 77.25%;
+  border-radius: 20%;
+  width: 75%;
   align-self: center;
   align-items: center;
   justify-content: center;
@@ -48,15 +48,34 @@ form {
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-around;
-  height: 50%;
+  height: 80%;
   width: 85%;
 }
 .title {
   font-size: 3.5rem;
   color: $secondary-color;
 }
+
+.field {
+  display: flex;
+  flex-flow: column nowrap;
+  // width: 100%;
+  justify-content: flex-start;
+  font-family: $vs-code-font;
+}
+.field-input {
+  width: 100%;
+  height: 50px;
+  padding: 15px;
+  box-sizing: border-box;
+}
 .message {
   height: 200px;
   overflow-y: scroll;
+}
+.field-title {
+  &:after {
+    content: "*";
+  }
 }
 </style>

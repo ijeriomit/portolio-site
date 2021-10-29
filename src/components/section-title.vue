@@ -71,6 +71,24 @@ $title-text-size: 3rem;
 
     font-weight: bold;
   }
+  .section-title-keyword-1-alt {
+    @extend .section-title-keyword-1;
+    color: $senary-color;
+  }
+  .section-title-keyword-2-alt {
+    @extend .section-title-keyword-2;
+
+    color: $secondary-color;
+  }
+  .section-title-title-alt {
+    @extend .section-title-title;
+
+    color: $tertiary-color;
+  }
+  .section-title-operator-alt {
+    @extend .section-title-operator;
+    color: $possible-grey-color;
+  }
 }
 @media screen and (max-width: $small-screen-width) {
   .section-title {
