@@ -1,7 +1,9 @@
 <template>
   <div class="footer-wrapper">
     <div class="socials">
-      <a class="social-icon"><img :src="linkedin"/></a>
+      <a style="margin-left: 0px;" class="social-icon"
+        ><img :src="linkedin"
+      /></a>
       <a class="social-icon"><img :src="github"/></a>
       <a class="social-icon"><img :src="medium"/></a>
     </div>
@@ -42,10 +44,11 @@ export default {
   margin-left: auto;
   margin-right: auto;
   position: absolute;
+  width: fit-content;
 }
 a {
-  width: 50px;
-  height: 50px;
+  width: 2.75rem;
+  height: 2.75rem;
   // background-color: white;
   display: block;
   margin-left: 60px;
