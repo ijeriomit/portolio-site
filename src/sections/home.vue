@@ -7,7 +7,7 @@
       </div>
       <img
         class="avatar"
-        src="@/assets/avatar-background.svg"
+        src="@/assets/clip-art-images/avatar-background.svg"
         alt="cartoon avater"
       />
     </span>

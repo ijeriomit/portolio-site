@@ -19,15 +19,18 @@
 </template>
 <script>
 import sectionTitle from "@/components/section-title.vue";
-import imageProcessingIcon from "@/assets/vision-logo.png";
-import unityIcon from "@/assets/unity.png";
-import webDevIcon from "@/assets/coding-icon-2.png";
-import codingIcon from "@/assets/coding-icon.jpg";
+import imageProcessingIcon from "@/assets/project-images/section-images/vision-logo.png";
+import unityIcon from "@/assets/project-images/section-images/unity.png";
+import webDevIcon from "@/assets/project-images/section-images/coding-icon-2.png";
+import codingIcon from "@/assets/project-images/section-images/coding-icon.jpg";
 import projectGrid from "@/components/project-grid";
-import ProjectGrid from "../components/project-grid.vue";
 
 export default {
   name: "projects",
+  components: {
+    "section-title": sectionTitle,
+    "project-grid": projectGrid
+  },
   data: function() {
     return {
       unityImg: unityIcon,
@@ -151,11 +154,6 @@ export default {
         }
       ]
     };
-  },
-  components: {
-    "section-title": sectionTitle,
-    "project-grid": projectGrid,
-    ProjectGrid
   }
 };
 </script>

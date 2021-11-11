@@ -18,7 +18,7 @@
 </template>
 <script>
 import NavBar from "@/components/nav-bar.vue";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/clip-art-images/logo.png";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
@@ -74,7 +74,7 @@ export default {
 }
 .title {
   order: 2;
-  font-family: $font;
+  font-family: $text-font;
   color: $light-text-color;
   align-self: center;
   font-weight: bold;

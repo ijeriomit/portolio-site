@@ -13,9 +13,9 @@
   </div>
 </template>
 <script>
-import mediumIcon from "@/assets/medium.png";
-import githubIcon from "@/assets/github.svg";
-import linkedinIcon from "@/assets/linkedinpng.svg";
+import mediumIcon from "@/assets/link-images/medium.png";
+import githubIcon from "@/assets/link-images/github.svg";
+import linkedinIcon from "@/assets/link-images/linkedinpng.svg";
 export default {
   data: function() {
     return {

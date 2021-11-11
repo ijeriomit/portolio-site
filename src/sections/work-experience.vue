@@ -9,65 +9,115 @@
         <div class="section-title-operator">}</div>
       </template>
     </section-title>
-    <div class="content-section">
-      <ul class="options">
-        <li v-for="company in companies" :key="company">
-          <div @click="loadJob('HMI')">
-            {{ company }}
+    <text-box class="content-section">
+      <template v-slot:text-slot>
+        <div class="text-section">
+          <ul class="experiences-list">
+            <li
+              v-for="experience in experiences"
+              :key="experience"
+              @click="selectExperience(experience)"
+            >
+              <div>
+                {{ experience.company }}
+              </div>
+            </li>
+          </ul>
+          <div class="experience-text-section">
+            <div class="text-section-title">
+              <h2>{{ selectedExperience.jobTitle }}</h2>
+              <h3>
+                {{ selectedExperience.startDate }} —
+                {{ selectedExperience.endDate }}
+              </h3>
+            </div>
+            <ul class="description-bullet-points">
+              <li
+                class="bullet"
+                v-for="task in selectedExperience.tasks"
+                :key="task"
+              >
+                {{ task }}
+              </li>
+            </ul>
           </div>
-        </li>
-      </ul>
-      <div class="content-text-section">
-        <div class="text-section-title">
-          <h2>Job Title</h2>
-          <h3>Start date — End Date</h3>
         </div>
-        <ul class="description-bullet-points">
-          <li class="bullet" v-for="bullet in bulletPoints" :key="bullet">
-            {{ bullet }}
-          </li>
-        </ul>
-      </div>
-      <image-carousel
-        class="image-section"
-        :slides="photos"
-        :descriptions="[1, 2, 3]"
-        :photoHeight="20"
-        :photoWidth="20"
-        :sizeType="'rem'"
-      ></image-carousel>
-    </div>
+        <img class="image-section" :src="selectedExperience.logo" />
+        <!-- <image-carousel
+          class="image-section"
+          :slides="selectedExperience.images"
+          :descriptions="[1, 2, 3]"
+          :photoHeight="20"
+          :photoWidth="20"
+          :sizeType="'rem'"
+        ></image-carousel> -->
+      </template>
+    </text-box>
   </div>
 </template>
 <script>
-import imageCarousel from "@/components/image-carousel.vue";
-import image1 from "@/assets/HMI.png";
-import image2 from "@/assets/IMG_9687_SparkVideo.gif";
-import image3 from "@/assets/aquanaut.png";
+// import imageCarousel from "@/components/image-carousel.vue";
+import image1 from "@/assets/work-experience-images/HMI.png";
 import sectionTitle from "@/components/section-title.vue";
+import textBox from "@/components/text-box.vue";
 
 export default {
   name: "work-experience",
   components: {
-    "image-carousel": imageCarousel,
-    "section-title": sectionTitle
+    // "image-carousel": imageCarousel,
+    "section-title": sectionTitle,
+    "text-box": textBox
+  },
+  mounted: function() {
+    this.selectedExperience = this.experiences[0];
   },
   data: function() {
     return {
-      experience: "",
-      companies: ["Houston Mechatronics", "Apple", "Hulu", "spotify", "apple"],
-      bulletPoints: [
-        "aid odda dadfda ida jai odjf",
-        "oiadioahif a jdfio ajdfadoifaj oidfja",
-        "oiajdfioad adjoiadfjai adodjfioadf ioajdf"
+      experiences: [
+        {
+          company: "Houston Mechatronics",
+          tasks: [
+            "aid odda dadfda ida jai odjf",
+            "oiadioahif a jdfio ajdfadoifaj oidfja",
+            "oiajdfioad adjoiadfjai adodjfioadf ioajdf"
+          ],
+          jobTitle: "Software Engineer",
+          startDate: "04/2019",
+          endDate: "06/2021",
+          logo: image1
+        },
+        {
+          company: "Google",
+          tasks: [
+            "oiadioahif a jdfio ajdfadoifaj oidfja",
+            "aid odda dadfda ida jai odjf",
+            "oiajdfioad adjoiadfjai adodjfioadf ioajdf"
+          ],
+          jobTitle: "Front End Developer",
+          startDate: "11/2021",
+          endDate: "Current",
+          logo: image1
+        },
+        {
+          company: "Apple",
+          tasks: [
+            "oiajdfioad adjoiadfjai adodjfioadf ioajdf",
+            "aid odda dadfda ida jai odjf",
+            "oiadioahif a jdfio ajdfadoifaj oidfja"
+          ],
+          jobTitle: "Software Engineer",
+          startDate: "04/2019",
+          endDate: "06/2021",
+          logo: image1
+        }
       ],
-      photos: [image1, image2, image3]
+      selectedExperience: null
     };
   },
   methods: {
-    loadJob() {},
-    loadJobPhotos() {},
-    loadJobDescription() {}
+    selectExperience: function(exp) {
+      this.selectedExperience = exp;
+    }
   }
 };
 </script>
@@ -82,9 +132,10 @@ $image-reel-square-width: $image-width * 0.15;
 .work-experience-wrapper {
   width: 97.5%;
   height: 90%;
+  font-family: $vs-code-font;
 }
 
-.options {
+.experiences-list {
   font-size: 25px;
   overflow-y: scroll;
   max-height: 200px;
@@ -92,17 +143,20 @@ $image-reel-square-width: $image-width * 0.15;
   list-style-type: none;
   order: 1;
 }
-.options::-webkit-scrollbar {
+.experiences-list::-webkit-scrollbar {
   display: none;
 }
 
 .image-section {
   order: 3;
   padding-left: 25px;
-
+  // height: 20rem;
+  max-width: 20rem;
+  overflow: hidden;
   padding-right: 25px;
 }
-
+.selected-company {
+}
 li > div {
   cursor: pointer;
   display: block;
@@ -119,9 +173,10 @@ li > div:hover {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  color: $dark-text-color;
+  color: $light-text-color;
+  background-color: $tertiary-color;
 }
-.content-text-section {
+.experience-text-section {
   padding-left: 15px;
   padding-right: 50px;
   order: 2;

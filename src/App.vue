@@ -21,10 +21,10 @@
         <about class="section-wrapper"> </about>
       </div>
       <div
-        class="secondary-background-block"
+        class="primary-background-block"
         style="grid-row: 3/3; justify-content: flex-start;"
       >
-        <img class="gear-image" src="@/assets/single-gear.png" />
+        <img class="gear-image" :src="gears" />
       </div>
       <div
         v-show="true"
@@ -50,7 +50,7 @@
         class="primary-background-block"
         style="grid-row:5/5; align-self: flex-start; background-color: #008753; border:none; "
       >
-        <img src="phoneImg" />
+        <img :src="phoneImg" />
       </div>
       <div
         v-show="true"
@@ -85,9 +85,9 @@ import workExperience from "./sections/work-experience.vue";
 import projects from "./sections/projects.vue";
 import contactMe from "./sections/contact-me.vue";
 import Footer from "./components/footer.vue";
-import gears from "@/assets/single-gear.png";
-import mattFar from "@/assets/Mattfarley-background.svg";
-import phone from "@/assets/phone.svg";
+import gears from "@/assets/clip-art-images/single-gear.png";
+import mattFar from "@/assets/clip-art-images/Mattfarley-background.svg";
+import phone from "@/assets/clip-art-images/phone.svg";
 import sectionTitle from "@/components/section-title.vue";
 
 export default {

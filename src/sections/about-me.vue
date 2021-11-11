@@ -51,7 +51,7 @@ import layeredImageFrame from "@/components/layered-image-frame";
 import sectionTitle from "@/components/section-title.vue";
 import textBox from "@/components/text-box.vue";
 
-import image from "@/assets/ij-floatin.png";
+import image from "@/assets/about-me-images/ij-floatin.png";
 export default {
   name: "About-Me",
   data: function() {
