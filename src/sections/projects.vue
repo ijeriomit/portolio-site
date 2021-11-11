@@ -23,6 +23,15 @@ import imageProcessingIcon from "@/assets/project-images/section-images/vision-l
 import unityIcon from "@/assets/project-images/section-images/unity.png";
 import webDevIcon from "@/assets/project-images/section-images/coding-icon-2.png";
 import codingIcon from "@/assets/project-images/section-images/coding-icon.jpg";
+
+import BitComponents from "@/assets/project-images/project-images/bit-components-image.png";
+import Epoch from "@/assets/project-images/project-images/Player-jumping2.png";
+import Lab from "@/assets/project-images/project-images/LAB.png";
+import MasterMind from "@/assets/project-images/project-images/mastermind-image.png";
+import ColorPicker from "@/assets/project-images/project-images/color-picker.png";
+import ImageManip from "@/assets/project-images/project-images/image-manip.png";
+import Ros from "@/assets/project-images/project-images/ROS.png";
+
 import projectGrid from "@/components/project-grid";
 
 export default {
@@ -33,10 +42,6 @@ export default {
   },
   data: function() {
     return {
-      unityImg: unityIcon,
-      codingImg: codingIcon,
-      webDevImg: webDevIcon,
-      imageProcessingImg: imageProcessingIcon,
       projectsSections: [
         {
           title: "Web Dev",
@@ -44,39 +49,21 @@ export default {
           projects: [
             {
               desc: "",
-              title: "Epoch",
-              languages: ["Python, ROS"],
-              image: webDevIcon
+              title: "Bit Components",
+              languages: ["Vue, Node"],
+              image: BitComponents
             },
             {
               desc: "",
-              title: "project2",
-              languages: ["Python, ROS"],
-              image: webDevIcon
+              title: "File Tree",
+              languages: ["Vue, Node"],
+              image: BitComponents
             },
             {
               desc: "",
-              title: "project3",
-              languages: ["Python, ROS"],
-              image: webDevIcon
-            },
-            {
-              desc: "",
-              title: "project4",
-              languages: ["Python, ROS"],
-              image: webDevIcon
-            },
-            {
-              desc: "",
-              title: "project5",
-              languages: ["Python, ROS"],
-              image: webDevIcon
-            },
-            {
-              desc: "",
-              title: "project3",
-              languages: ["Python, ROS"],
-              image: imageProcessingIcon
+              title: "Portfolio-Site",
+              languages: ["Vue, Node, Chai, SASS"],
+              image: BitComponents
             }
           ]
         },
@@ -86,21 +73,21 @@ export default {
           projects: [
             {
               desc: "",
-              title: "project1",
-              languages: ["Python, ROS"],
-              image: unityIcon
+              title: "Epoch",
+              languages: ["Unity3D, C#, Krita, Spriter"],
+              image: Epoch
             },
             {
               desc: "",
-              title: "project2",
-              languages: ["Python, ROS"],
-              image: unityIcon
+              title: "Lab",
+              languages: ["Unity3D, C#, Paint3D"],
+              image: Lab
             },
             {
               desc: "",
-              title: "project3",
-              languages: ["Python, ROS"],
-              image: unityIcon
+              title: "MasterMind",
+              languages: ["Java, Swing"],
+              image: MasterMind
             }
           ]
         },
@@ -110,44 +97,44 @@ export default {
           projects: [
             {
               desc: "",
-              title: "project1",
-              languages: ["Python, ROS"],
-              image: imageProcessingIcon
+              title: "ROS-Video-Recorder",
+              languages: ["Python, ROS, PyTest"],
+              image: Ros
             },
             {
               desc: "",
-              title: "project2",
-              languages: ["Python, ROS"],
-              image: imageProcessingIcon
+              title: "Image Manipulator",
+              languages: ["Python, OpenCV, PyTest"],
+              image: ImageManip
             },
             {
               desc: "",
-              title: "project3",
-              languages: ["Python, ROS"],
-              image: imageProcessingIcon
+              title: "Color Picker",
+              languages: ["Python, OpenCV"],
+              image: ColorPicker
             }
           ]
         },
         {
-          title: "Python",
+          title: "Python and Etc.",
           icon: codingIcon,
           projects: [
             {
               desc: "",
-              title: "project1",
-              languages: ["Python, ROS"],
+              title: "Advent of Code",
+              languages: ["Python", "PyTest"],
               image: codingIcon
             },
             {
               desc: "",
-              title: "project2",
-              languages: ["Python, ROS"],
+              title: "Rubix-Cube-Solver",
+              languages: ["Python, OpenCV"],
               image: codingIcon
             },
             {
               desc: "",
-              title: "project3",
-              languages: ["Python, ROS"],
+              title: "SeleniumDemo",
+              languages: ["SeleniumWebDrvier, Python, Vue"],
               image: webDevIcon
             }
           ]
