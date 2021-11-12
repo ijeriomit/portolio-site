@@ -14,8 +14,8 @@
         <div class="text-section">
           <ul class="experiences-list">
             <li
-              v-for="experience in experiences"
-              :key="experience"
+              v-for="(experience, index) in experiences"
+              :key="index"
               @click="selectExperience(experience)"
             >
               <div>
@@ -34,8 +34,8 @@
             <ul class="description-bullet-points">
               <li
                 class="bullet"
-                v-for="task in selectedExperience.tasks"
-                :key="task"
+                v-for="(task, index) in selectedExperience.tasks"
+                :key="index"
               >
                 {{ task }}
               </li>
@@ -68,7 +68,7 @@ export default {
     "section-title": sectionTitle,
     "text-box": textBox
   },
-  mounted: function() {
+  beforeMount: function() {
     this.selectedExperience = this.experiences[0];
   },
   data: function() {

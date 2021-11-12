@@ -1,5 +1,5 @@
 <template>
-  <div class="text-box" :class="animate ? 'animation' : ''" @click="boxClicked">
+  <div class="text-box" :class="animate ? 'animation' : ''">
     <slot name="text-slot"></slot>
   </div>
 </template>
@@ -7,18 +7,7 @@
 export default {
   name: "text-box",
   props: {
-    animate: Boolean,
-    clickFunction: {
-      type: Function,
-      default: () => {
-        console.debug("No click Function Defined");
-      }
-    }
-  },
-  methods: {
-    boxClicked: function() {
-      this.clickFunction();
-    }
+    animate: Boolean
   }
 };
 </script>

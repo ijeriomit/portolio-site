@@ -24,7 +24,7 @@
         class="primary-background-block"
         style="grid-row: 3/3; justify-content: flex-start;"
       >
-        <img class="gear-image" :src="gears" />
+        <img class="gear-image" :src="gearsImg" />
       </div>
       <div
         v-show="true"

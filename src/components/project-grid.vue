@@ -3,7 +3,7 @@
     <text-box
       v-for="(section, index) in gridData"
       :key="index"
-      @click="selectSection(section)"
+      v-on:click.native="selectSection(section)"
       class="section-label"
       :class="[fadeSection(section) ? 'fade' : '']"
     >
@@ -15,8 +15,9 @@
     <div class="project-list">
       <text-box
         class="project-label center-x-axis"
-        v-for="(project, index) in gridData[0].projects"
+        v-for="(project, index) in selectedSection.projects"
         :key="index"
+        @click.native="selectProject(project)"
       >
         <template v-slot:text-slot>
           <!-- <div class="section-icon"><img :src="project.image" /></div> -->
@@ -25,16 +26,16 @@
       </text-box>
     </div>
     <div class="project-content">
-      <h2 class="project-content-title">{{ gridData[0].projects[0].title }}</h2>
+      <h2 class="project-content-title">{{ selectedProject.title }}</h2>
 
-      <img class="project-image" :src="gridData[0].projects[0].image" />
+      <img class="project-image" :src="selectedProject.image" />
       <div class="project-text">
         <p class="project-description lorem-ipsum-1"></p>
         <div class="project-links"><button></button> <button></button></div>
         <div class="project-languages">
           <div
             class="project-language"
-            v-for="(language, index) in gridData[0].projects[0].languages"
+            v-for="(language, index) in selectedProject.languages"
             :key="index"
           >
             {{ language }}
@@ -57,6 +58,11 @@ export default {
   components: {
     "text-box": textBox
   },
+  beforeMount: function() {
+    this.selectedSection = this.gridData[0];
+    this.selectedProject = this.selectedSection.projects[0];
+    console.log("here");
+  },
   data: function() {
     return {
       selectedSection: null,
@@ -65,10 +71,15 @@ export default {
   },
   methods: {
     selectSection: function(section) {
+      console.log("selected section");
       this.selectedSection = section;
-      this.selectedProject = section.projects[0];
+      this.selectProject(section.projects[0]);
+    },
+    selectProject: function(project) {
+      this.selectedProject = project;
     },
     fadeSection: function(section) {
+      console.log("section faded");
       if (this.selectedSection != null) {
         return section.title != this.selectedSection.title;
       }

@@ -15,12 +15,7 @@
         }"
       />
     </div>
-    <div
-      :style="{
-        borderColor: frameColor
-      }"
-      class="floating-frame-layer"
-    ></div>
+    <div class="floating-frame-layer"></div>
   </div>
 </template>
 <script>

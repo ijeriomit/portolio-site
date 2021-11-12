@@ -25,7 +25,7 @@ import webDevIcon from "@/assets/project-images/section-images/coding-icon-2.png
 import codingIcon from "@/assets/project-images/section-images/coding-icon.jpg";
 
 import BitComponents from "@/assets/project-images/project-images/bit-components-image.png";
-import Epoch from "@/assets/project-images/project-images/Player-jumping2.png";
+import Epoch from "@/assets/project-images/project-images/player-jumping.png";
 import Lab from "@/assets/project-images/project-images/LAB.png";
 import MasterMind from "@/assets/project-images/project-images/mastermind-image.png";
 import ColorPicker from "@/assets/project-images/project-images/color-picker.png";
