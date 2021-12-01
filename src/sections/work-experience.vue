@@ -2,30 +2,44 @@
   <div class="work-experience-wrapper">
     <section-title style="width: 90%;">
       <template v-slot:section-title-content>
-        <div class="section-title-keyword-1">function()</div>
-        <div class="section-title-operator">{</div>
-        <div class="section-title-keyword-2">return</div>
+        <div style="color : #FFFFFF;" class="section-title-keyword-1">
+          function()
+        </div>
+        <div style="color : #FFFFFF;" class="section-title-operator">{</div>
+        <div style="color: #00ff9d;" class="section-title-keyword-2">
+          return
+        </div>
         <div class="section-title-title">WorkExperience</div>
-        <div class="section-title-operator">}</div>
+        <div style="color : #FFFFFF;" class="section-title-operator">}</div>
       </template>
     </section-title>
     <text-box class="content-section">
       <template v-slot:text-slot>
-        <div class="text-section">
-          <ul class="experiences-list">
-            <li
-              v-for="(experience, index) in experiences"
-              :key="index"
-              @click="selectExperience(experience)"
-            >
-              <div>
-                {{ experience.company }}
-              </div>
-            </li>
-          </ul>
+        <div class="company-list">
+          <div
+            v-for="(experience, index) in experiences"
+            :key="index"
+            @click="selectExperience(experience)"
+            :class="[
+              experience == selectedExperience ? 'selected-experience' : ''
+            ]"
+          >
+            {{ experience.company }}
+          </div>
+        </div>
+        <div class="text-box-content-section">
           <div class="experience-text-section">
             <div class="text-section-title">
-              <h2>{{ selectedExperience.jobTitle }}</h2>
+              <h2>
+                <span>{{ selectedExperience.jobTitle }}</span> @
+                <a
+                  :href="selectedExperience.link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="company-title"
+                  >{{ selectedExperience.company }}</a
+                >
+              </h2>
               <h3>
                 {{ selectedExperience.startDate }} —
                 {{ selectedExperience.endDate }}
@@ -41,23 +55,16 @@
               </li>
             </ul>
           </div>
+          <img class="image-section" :src="selectedExperience.logo" />
         </div>
-        <img class="image-section" :src="selectedExperience.logo" />
-        <!-- <image-carousel
-          class="image-section"
-          :slides="selectedExperience.images"
-          :descriptions="[1, 2, 3]"
-          :photoHeight="20"
-          :photoWidth="20"
-          :sizeType="'rem'"
-        ></image-carousel> -->
       </template>
     </text-box>
   </div>
 </template>
 <script>
 // import imageCarousel from "@/components/image-carousel.vue";
-import image1 from "@/assets/work-experience-images/HMI.png";
+import hmiImg from "@/assets/work-experience-images/HMI.png";
+import googleImg from "@/assets/work-experience-images/google-logo.png";
 import sectionTitle from "@/components/section-title.vue";
 import textBox from "@/components/text-box.vue";
 
@@ -77,38 +84,28 @@ export default {
         {
           company: "Houston Mechatronics",
           tasks: [
-            "aid odda dadfda ida jai odjf",
-            "oiadioahif a jdfio ajdfadoifaj oidfja",
-            "oiajdfioad adjoiadfjai adodjfioadf ioajdf"
+            "aid odda dadfda ida jai odjf dua ajd a daio ijuaddaj iodjia jad ",
+            "oiadioahif a jdfio ajdfadoifaj oidfja ad adf ad fad fa fca dagQEGRGHA FSAGA DZV ",
+            "oiajdfioad adjoiadfjai adodjfioadf ioajdf ZDF AFGA  ASDF AsaDE AFGA adxsfd "
           ],
           jobTitle: "Software Engineer",
           startDate: "04/2019",
           endDate: "06/2021",
-          logo: image1
+          logo: hmiImg,
+          link: "https://www.houstonmechatronics.com/"
         },
         {
           company: "Google",
           tasks: [
-            "oiadioahif a jdfio ajdfadoifaj oidfja",
-            "aid odda dadfda ida jai odjf",
-            "oiajdfioad adjoiadfjai adodjfioadf ioajdf"
+            "oiadioahif a jdfio ajdfadoifaj oidfja dauajnh fiaj adiojnvn danub aba suedw  iue nai wuh ah auhd uiad a uadma ija oja a a aa d",
+            "aid odda dadfda ida jai odjf aud a q2uw nwnsa- wiwi ka,. osos ehe ;sapo  ao9d fqqyue o ewiu  ,z, x id diw iaoa afna ",
+            "oiajdfioad adjoiadfjai adodjfioadf ioajdf ad ajio  dfodoqq3hd najki ni wkm iuen uiajk dikdfkimam ccud odadjf apodgifj ;mfifj ja ddjfdi"
           ],
           jobTitle: "Front End Developer",
           startDate: "11/2021",
           endDate: "Current",
-          logo: image1
-        },
-        {
-          company: "Apple",
-          tasks: [
-            "oiajdfioad adjoiadfjai adodjfioadf ioajdf",
-            "aid odda dadfda ida jai odjf",
-            "oiadioahif a jdfio ajdfadoifaj oidfja"
-          ],
-          jobTitle: "Software Engineer",
-          startDate: "04/2019",
-          endDate: "06/2021",
-          logo: image1
+          logo: googleImg,
+          link: "https://about.google/"
         }
       ],
       selectedExperience: null
@@ -135,32 +132,53 @@ $image-reel-square-width: $image-width * 0.15;
   font-family: $vs-code-font;
 }
 
-.experiences-list {
+.company-list {
   font-size: 25px;
-  overflow-y: scroll;
-  max-height: 200px;
-  border-left: 2px solid $quinary-color;
-  list-style-type: none;
-  order: 1;
+  // order: 1;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  width: 90%;
+  // align-self: flex-start;
 }
-.experiences-list::-webkit-scrollbar {
-  display: none;
+.company-title {
+  color: $senary-color;
+}
+.text-box-content-section {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+  width: 100%;
+}
+.company-list > div {
+  cursor: pointer;
+  padding: 5px;
+}
+.company-list > div:hover {
+  background-color: $quinary-color;
+  color: $senary-color;
 }
 
 .image-section {
   order: 3;
   padding-left: 25px;
-  // height: 20rem;
-  max-width: 20rem;
+  max-height: 20rem;
+  max-width: 25rem;
   overflow: hidden;
   padding-right: 25px;
 }
-.selected-company {
+.selected-experience {
+  background-color: $quinary-color;
+  color: $dark-text-color;
+  font-weight: bold;
 }
 li > div {
   cursor: pointer;
   display: block;
   padding: 20px 25px;
+}
+.description-bullet-points {
+  max-width: 90%;
 }
 .bullet {
   padding: 10px 0px;
@@ -171,8 +189,12 @@ li > div:hover {
 }
 .content-section {
   display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
+  flex-flow: column nowrap;
+  justify-content: space-evenly;
+  // align-items: center;
+  align-self: center;
+  width: 80rem;
+  height: 30rem;
   color: $light-text-color;
   background-color: $tertiary-color;
 }
@@ -181,5 +203,6 @@ li > div:hover {
   padding-right: 50px;
   order: 2;
   text-align: center;
+  width: 55%;
 }
 </style>

@@ -12,21 +12,7 @@
       <div class="text-boxes">
         <text-box class="desc-content">
           <template v-slot:text-slot>
-            <div class="text">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est
-              laborum.""Sed ut perspiciatis unde omnis iste natus error sit
-              voluptatem accusantium doloremque laudantium, totam rem aperiam,
-              eaque ipsa quae ab illo inventore veritatis et quasi architecto
-              beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia
-              voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur
-              magni dolores eos qui ratione voluptatem sequi nesciunt.
-            </div>
+            <div class="text lorem-ipsum-1"></div>
           </template>
         </text-box>
         <text-box class="skills-content">
@@ -68,6 +54,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "@/scss/variables.scss";
+@import "@/scss/styles.scss";
 
 $image-height: 31rem;
 $image-width: 25rem;
@@ -78,6 +65,7 @@ $phone-image-height: 15rem;
   width: 97.25%;
   height: 90%;
   margin-top: 3rem;
+  font-family: $vs-code-font;
 }
 
 .content-section {
