@@ -10,7 +10,7 @@
     </div>
 
     <div class="nav-section">
-      <nav-bar />
+      <nav-bar :tabs="tabs" />
     </div>
 
     <font-awesome class="hamburger-menu" :icon="['fa', 'bars']"></font-awesome>
@@ -28,6 +28,9 @@ export default {
   components: {
     "nav-bar": NavBar,
     "font-awesome": FontAwesomeIcon
+  },
+  props: {
+    tabs: Array
   },
   created: function() {
     library.add(faBars);

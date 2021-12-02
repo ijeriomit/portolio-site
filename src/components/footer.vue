@@ -1,11 +1,15 @@
 <template>
   <div class="footer-wrapper">
     <div class="socials">
-      <a style="margin-left: 0px;" class="social-icon"
-        ><img :src="linkedin"
-      /></a>
-      <a class="social-icon"><img :src="github"/></a>
-      <a class="social-icon"><img :src="medium"/></a>
+      <a
+        :href="iconObj.link"
+        target="_blank"
+        rel="noopener noreferrer"
+        v-for="(iconObj, index) in footerIcons"
+        :key="index"
+      >
+        <img :src="iconObj.icon" />
+      </a>
     </div>
     <div class="credit">
       <p>Developed and Designed <b /> by <b /> Ijeri Omitogun</p>
@@ -13,16 +17,11 @@
   </div>
 </template>
 <script>
-import mediumIcon from "@/assets/link-images/medium.png";
-import githubIcon from "@/assets/link-images/github.svg";
-import linkedinIcon from "@/assets/link-images/linkedinpng.svg";
 export default {
-  data: function() {
-    return {
-      github: githubIcon,
-      medium: mediumIcon,
-      linkedin: linkedinIcon
-    };
+  props: {
+    footerIcons: {
+      type: Array
+    }
   }
 };
 </script>
@@ -37,6 +36,9 @@ export default {
 .socials {
   display: flex;
   margin-right: 2rem;
+}
+.socials > a:first-child {
+  margin-left: 0px;
 }
 .credit {
   left: 0;

@@ -20,9 +20,8 @@
             v-for="(experience, index) in experiences"
             :key="index"
             @click="selectExperience(experience)"
-            :class="[
-              experience == selectedExperience ? 'selected-experience' : ''
-            ]"
+            :class="[experience == selectedExperience ? 'selected' : '']"
+            class="background-label"
           >
             {{ experience.company }}
           </div>
@@ -148,15 +147,13 @@ $image-reel-square-width: $image-width * 0.15;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-around;
+  align-items: center;
   width: 100%;
 }
+
 .company-list > div {
-  cursor: pointer;
-  padding: 5px;
-}
-.company-list > div:hover {
-  background-color: $quinary-color;
-  color: $senary-color;
+  // color: $dark-text-color;
+  // background-color: $opaque-secondary-color;
 }
 
 .image-section {
@@ -167,25 +164,13 @@ $image-reel-square-width: $image-width * 0.15;
   overflow: hidden;
   padding-right: 25px;
 }
-.selected-experience {
-  background-color: $quinary-color;
-  color: $dark-text-color;
-  font-weight: bold;
-}
-li > div {
-  cursor: pointer;
-  display: block;
-  padding: 20px 25px;
-}
+
 .description-bullet-points {
   max-width: 90%;
 }
 .bullet {
   padding: 10px 0px;
   text-align: left;
-}
-li > div:hover {
-  background-color: $quinary-color;
 }
 .content-section {
   display: flex;

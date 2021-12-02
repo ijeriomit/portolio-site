@@ -20,7 +20,6 @@
         @click.native="selectProject(project)"
       >
         <template v-slot:text-slot>
-          <!-- <div class="section-icon"><img :src="project.image" /></div> -->
           <h4 class="section-title">{{ project.title }}</h4>
         </template>
       </text-box>

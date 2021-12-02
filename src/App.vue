@@ -1,9 +1,18 @@
 <template>
   <div id="app">
-    <floating-header class="header"></floating-header>
+    <floating-header
+      :tabs="[
+        homeSection,
+        aboutMeSection,
+        workExpSection,
+        projectSection,
+        contactSection
+      ]"
+      class="header"
+    ></floating-header>
     <div class="content-grid">
       <div class="primary-background-block" style="grid-row: 1/1;"></div>
-      <div id="HOME" class="content-block" style="grid-row: 1/1;">
+      <div :id="homeSection.id" class="content-block" style="grid-row: 1/1;">
         <home class="section-wrapper" style="padding-bottom: 10vh;"></home>
       </div>
       <div
@@ -14,7 +23,7 @@
       </div>
       <div
         v-show="true"
-        id="ABOUT-ME"
+        :id="aboutMeSection.id"
         class="content-block"
         style="grid-row: 2/2;"
       >
@@ -28,7 +37,7 @@
       </div>
       <div
         v-show="true"
-        id="WORK-EXPERIENCE"
+        :id="workExpSection.id"
         class="content-block"
         style="grid-row: 3/3;"
       >
@@ -40,7 +49,7 @@
       ></div>
       <div
         v-show="true"
-        id="PROJECTS"
+        :id="projectSection.id"
         class="content-block"
         style="grid-row: 4/4;"
       >
@@ -54,7 +63,7 @@
       </div>
       <div
         v-show="true"
-        id="CONTACT-ME"
+        :id="contactSection.id"
         class="content-block"
         style="grid-row: 5/5; flex-flow: column nowrap;"
       >
@@ -71,7 +80,7 @@
       </div>
       <div class="footer" style="grid-row: 6/6;"></div>
       <div class="content-block" style="grid-row: 6/6">
-        <Footer class="section-wrapper"></Footer>
+        <Footer :footerIcons="footerIcons" class="section-wrapper"></Footer>
       </div>
     </div>
     <div class="social-bar"></div>
@@ -88,6 +97,9 @@ import Footer from "./components/footer.vue";
 import gears from "@/assets/clip-art-images/single-gear.png";
 import mattFar from "@/assets/clip-art-images/Mattfarley-background.svg";
 import phone from "@/assets/clip-art-images/phone.svg";
+import mediumIcon from "@/assets/link-images/medium.png";
+import githubIcon from "@/assets/link-images/github.svg";
+import linkedinIcon from "@/assets/link-images/linkedinpng.svg";
 import sectionTitle from "@/components/section-title.vue";
 
 export default {
@@ -106,7 +118,32 @@ export default {
     return {
       gearsImg: gears,
       mattFarImg: mattFar,
-      phoneImg: phone
+      phoneImg: phone,
+      homeSection: { link: "#HOME", text: ".home()", id: "HOME" },
+      aboutMeSection: { link: "#ABOUTME", text: ".aboutMe()", id: "ABOUTME" },
+      workExpSection: {
+        link: "#WORKEXP",
+        text: ".workExperience()",
+        id: "WORKEXP"
+      },
+      projectSection: {
+        link: "#PROJECTS",
+        text: ".projects()",
+        id: "PROJECTS"
+      },
+      contactSection: {
+        link: "#CONTACTME",
+        text: ".contactMe()",
+        id: "CONTACTME"
+      },
+      footerIcons: [
+        {
+          icon: linkedinIcon,
+          link: "https://www.linkedin.com/in/ijeri-omitogun/"
+        },
+        { icon: githubIcon, link: "https://github.com/ijeriomit" },
+        { icon: mediumIcon, link: "https://jeri-omit.medium.com/" }
+      ]
     };
   }
 };
@@ -162,8 +199,6 @@ body {
   height: 100%;
   position: relative;
   grid-column: 1/4;
-  // border-top: #f1f1f1 solid 8px;
-  // border-bottom: #f1f1f1 solid 4px;
   box-sizing: border-box;
   display: flex;
   flex-flow: row;
@@ -217,6 +252,9 @@ body {
   height: 90%;
   justify-content: space-around;
   overflow: hidden;
+}
+.section-target {
+  align-self: flex-start;
 }
 
 @media screen and (max-width: $phone-screen-width) {
