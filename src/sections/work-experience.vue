@@ -61,7 +61,6 @@
   </div>
 </template>
 <script>
-// import imageCarousel from "@/components/image-carousel.vue";
 import hmiImg from "@/assets/work-experience-images/HMI.png";
 import googleImg from "@/assets/work-experience-images/google-logo.png";
 import sectionTitle from "@/components/section-title.vue";
@@ -133,12 +132,10 @@ $image-reel-square-width: $image-width * 0.15;
 
 .company-list {
   font-size: 25px;
-  // order: 1;
   display: flex;
   flex-flow: row wrap;
   justify-content: space-evenly;
   width: 90%;
-  // align-self: flex-start;
 }
 .company-title {
   color: $senary-color;
@@ -148,12 +145,7 @@ $image-reel-square-width: $image-width * 0.15;
   flex-flow: row nowrap;
   justify-content: space-around;
   align-items: center;
-  width: 100%;
-}
-
-.company-list > div {
-  // color: $dark-text-color;
-  // background-color: $opaque-secondary-color;
+  width: 95%;
 }
 
 .image-section {
@@ -176,7 +168,6 @@ $image-reel-square-width: $image-width * 0.15;
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-evenly;
-  // align-items: center;
   align-self: center;
   width: 80rem;
   height: 30rem;

@@ -21,23 +21,23 @@
           </template>
         </text-box>
       </div>
-      <layered-frame
+      <floating-frame
         :borderColor="'#4F3E3E'"
         :backgroundColor="'rgb(196, 196, 153)'"
         :horizontalOffset="2.5"
         :verticalOffset="3"
         :imageSrc="image"
         class="image-frame"
-      ></layered-frame>
+      ></floating-frame>
     </div>
   </div>
 </template>
 <script>
-import layeredImageFrame from "@/components/layered-image-frame";
+import FloatingFrame from "@/components/floating-frame";
 import sectionTitle from "@/components/section-title.vue";
 import textBox from "@/components/text-box.vue";
 
-import image from "@/assets/about-me-images/ij-floatin.png";
+import image from "@/assets/about-me-images/ij-floatin-cropped.png";
 export default {
   name: "About-Me",
   data: function() {
@@ -46,7 +46,7 @@ export default {
     };
   },
   components: {
-    "layered-frame": layeredImageFrame,
+    "floating-frame": FloatingFrame,
     "section-title": sectionTitle,
     "text-box": textBox
   }
