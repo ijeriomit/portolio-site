@@ -17,14 +17,19 @@
         </text-box>
         <text-box class="skills-content">
           <template class="text" v-slot:text-slot>
-            Recent Technologies: Javascript Python Java C# Vue ROS
+            <span>Recent Technologies:</span>
+            <ul class="technologies">
+              <li v-for="(item, index) in technologies" :key="index">
+                {{ item }}
+              </li>
+            </ul>
           </template>
         </text-box>
       </div>
       <floating-frame
         :borderColor="'#4F3E3E'"
         :backgroundColor="'rgb(196, 196, 153)'"
-        :horizontalOffset="2.5"
+        :horizontalOffset="3"
         :verticalOffset="3"
         :imageSrc="image"
         class="image-frame"
@@ -37,12 +42,14 @@ import FloatingFrame from "@/components/floating-frame";
 import sectionTitle from "@/components/section-title.vue";
 import textBox from "@/components/text-box.vue";
 
-import image from "@/assets/about-me-images/ij-floatin-cropped.png";
+import image from "@/assets/about-me-images/ij-floatin.png";
 export default {
   name: "About-Me",
   data: function() {
     return {
-      image: image
+      image: image,
+      aboutMeText: "",
+      technologies: ["Javascript", "Python", "Vue", "Angular", "Node.js", "ROS"]
     };
   },
   components: {
@@ -67,7 +74,17 @@ $phone-image-height: 15rem;
   margin-top: 3rem;
   font-family: $vs-code-font;
 }
-
+.technologies {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 33.33% 33.33% 33.33%;
+  width: 90%;
+  height: 90%;
+  gap: 0 10px;
+  li {
+    padding: 5px;
+  }
+}
 .content-section {
   display: flex;
   flex-flow: row wrap;
@@ -93,6 +110,8 @@ $phone-image-height: 15rem;
   height: 12.5rem;
   color: $dark-text-color;
   order: 1;
+  display: flex;
+  flex-flow: column;
 }
 .image-frame {
   order: 2;

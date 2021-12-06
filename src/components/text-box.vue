@@ -16,7 +16,7 @@ export default {
 
 .text-box {
   background-color: grey;
-  border-radius: 30px;
+  border-radius: $box-border-radius;
   width: fit-content;
   height: fit-content;
   display: flex;

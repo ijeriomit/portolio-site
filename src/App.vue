@@ -97,10 +97,16 @@ import Footer from "./components/footer.vue";
 import gears from "@/assets/clip-art-images/single-gear.png";
 import mattFar from "@/assets/clip-art-images/Mattfarley-background.svg";
 import phone from "@/assets/clip-art-images/phone.svg";
-import mediumIcon from "@/assets/link-images/medium.png";
-import githubIcon from "@/assets/link-images/github.svg";
-import linkedinIcon from "@/assets/link-images/linkedinpng.svg";
+// import mediumIcon from "@/assets/link-images/medium.png";
+// import githubIcon from "@/assets/link-images/github.svg";
+// import linkedinIcon from "@/assets/link-images/linkedinpng.svg";
 import sectionTitle from "@/components/section-title.vue";
+
+import {
+  faLinkedin,
+  faMedium,
+  faGithub
+} from "@fortawesome/free-brands-svg-icons";
 
 export default {
   name: "homepage",
@@ -138,11 +144,20 @@ export default {
       },
       footerIcons: [
         {
-          icon: linkedinIcon,
-          link: "https://www.linkedin.com/in/ijeri-omitogun/"
+          icon: faLinkedin,
+          link: "https://www.linkedin.com/in/ijeri-omitogun/",
+          iconName: ["fa-brands", "fa-linkedin"]
         },
-        { icon: githubIcon, link: "https://github.com/ijeriomit" },
-        { icon: mediumIcon, link: "https://jeri-omit.medium.com/" }
+        {
+          icon: faGithub,
+          link: "https://github.com/ijeriomit",
+          iconName: ["fa-brands", "fa-github"]
+        },
+        {
+          icon: faMedium,
+          link: "https://jeri-omit.medium.com/",
+          iconName: ["fa-brands", "fa-medium"]
+        }
       ]
     };
   }
@@ -180,7 +195,7 @@ $page-height: $header-height + $small-section-height + $section-height +
   height: 100%;
   width: 100%;
   display: grid;
-  grid-template-columns: 10% 80% 10%;
+  grid-template-columns: 5% 90% 5%;
   grid-template-rows:
     ($small-section-height + $header-height) $section-height $section-height
     $large-section-height

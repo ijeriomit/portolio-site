@@ -8,7 +8,8 @@
         v-for="(iconObj, index) in footerIcons"
         :key="index"
       >
-        <img :src="iconObj.icon" />
+        <font-awesome class="icon" :icon="iconObj.icon"></font-awesome>
+        <!-- <img :src="iconObj.icon" /> -->
       </a>
     </div>
     <div class="credit">
@@ -17,7 +18,18 @@
   </div>
 </template>
 <script>
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import { library } from "@fortawesome/fontawesome-svg-core";
+
 export default {
+  components: {
+    "font-awesome": FontAwesomeIcon
+  },
+  created: function() {
+    this.footerIcons.map(iconObj => {
+      library.add(iconObj);
+    });
+  },
   props: {
     footerIcons: {
       type: Array
@@ -26,6 +38,8 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+@import "@/scss/variables.scss";
+
 .footer-wrapper {
   flex-flow: row nowrap;
   justify-content: space-between;
@@ -48,9 +62,14 @@ export default {
   position: absolute;
   width: fit-content;
 }
+.icon {
+  height: 100%;
+  width: 100%;
+  color: $tertiary-color;
+}
 a {
-  width: 2.75rem;
-  height: 2.75rem;
+  width: 3rem;
+  height: 3rem;
   // background-color: white;
   display: block;
   margin-left: 60px;

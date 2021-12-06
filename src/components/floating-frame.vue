@@ -65,11 +65,13 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
+@import "@/scss/variables.scss";
+
 .layer {
   height: inherit;
   width: inherit;
   position: absolute;
-  border-radius: 10px;
+  border-radius: $box-border-radius;
 }
 .background-layer {
   @extend .layer;
@@ -80,9 +82,9 @@ export default {
 .floating-frame-layer {
   @extend .layer;
   z-index: 1;
-  border-style: solid;
-  border-width: 10px;
+  border: black solid 15px;
   box-sizing: border-box;
+  height: inherit;
 }
 .frame-wrapper {
   display: flex;
@@ -93,8 +95,8 @@ export default {
 img {
   max-width: 100%;
   max-height: 100%;
-  position: relative;
-  height: 100%;
+  position: absolute;
+  bottom: 0px;
   border-width: 0.5px;
 }
 </style>

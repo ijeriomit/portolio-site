@@ -61,12 +61,12 @@ export default {
   order: 1;
   // right: 5%;
   position: relative;
-  left: 10vw;
+  left: 5vw;
 }
 .nav-section {
   order: 2;
   position: relative;
-  right: 10vw;
+  right: 5vw;
 }
 
 .logo {
