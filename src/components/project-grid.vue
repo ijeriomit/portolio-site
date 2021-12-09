@@ -4,25 +4,36 @@
       v-for="(section, index) in gridData"
       :key="index"
       v-on:click.native="selectSection(section)"
+      @mouseenter.native="section.hovered = true"
+      @mouseleave.native="section.hovered = false"
       class="section-label"
-      :class="[fadeSection(section) ? 'fade' : '']"
+      :style="{ 'grid-area': 'section' + (index + 1) }"
+      :class="[
+        section.hovered && selectedSection != section ? 'fade-60' : '',
+        fadeSection(section) ? 'fade-30' : ''
+      ]"
     >
       <template v-slot:text-slot>
-        <div class="section-icon"><img :src="section.icon" /></div>
-        <h3 class="section-title">{{ section.title }}</h3>
+        <font-awesome class="icon" :icon="section.icon"></font-awesome>
+        <h3 class="section-title">
+          {{ section.title }}
+        </h3>
       </template>
     </text-box>
-    <div class="project-list">
-      <text-box
-        class="project-label center-x-axis"
-        v-for="(project, index) in selectedSection.projects"
-        :key="index"
-        @click.native="selectProject(project)"
-      >
-        <template v-slot:text-slot>
-          <h4 class="section-title">{{ project.title }}</h4>
-        </template>
-      </text-box>
+    <div class="projects">
+      <div style="padding: 10px; font-weight: bold">Projects</div>
+      <div class="project-list">
+        <text-box
+          class="project-label center-x-axis"
+          v-for="(project, index) in selectedSection.projects"
+          :key="index"
+          @click.native="selectProject(project)"
+        >
+          <template v-slot:text-slot>
+            <h4 class="section-title">{{ project.title }}</h4>
+          </template>
+        </text-box>
+      </div>
     </div>
     <div class="project-content">
       <h2 class="project-content-title">{{ selectedProject.title }}</h2>
@@ -46,6 +57,8 @@
 </template>
 <script>
 import textBox from "@/components/text-box.vue";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+// import { library } from "@fortawesome/fontawesome-svg-core";
 
 export default {
   name: "project-grid",
@@ -55,9 +68,10 @@ export default {
     }
   },
   components: {
-    "text-box": textBox
+    "text-box": textBox,
+    "font-awesome": FontAwesomeIcon
   },
-  beforeMount: function() {
+  created: function() {
     this.selectedSection = this.gridData[0];
     this.selectedProject = this.selectedSection.projects[0];
     console.log("here");
@@ -83,6 +97,10 @@ export default {
         return section.title != this.selectedSection.title;
       }
       return false;
+    },
+    sectionHovered: function(section) {
+      console.log("hovered: ", section.title);
+      section.hovered = true;
     }
   }
 };
@@ -95,17 +113,18 @@ export default {
   width: 100%;
   height: 100%;
   display: grid;
-  grid-template-columns: 22.5% 22.5% 22.5% 22.5%;
+  grid-template-columns: 20% 20% 20% 20 20%;
   grid-template-rows: 22.5% 75%;
 
   grid-template-areas:
-    ". . . ."
-    "project-list project-content project-content project-content";
+    "section1 section2 section3 section4 section5"
+    "project-list project-content project-content project-content project-content";
   -moz-column-gap: 5%;
   column-gap: 2.5%;
-  row-gap: 2.5%;
+  row-gap: 3rem;
   align-items: center;
   justify-items: center;
+  font-family: $vs-code-font;
 }
 .section-label {
   grid-row: 1;
@@ -115,21 +134,17 @@ export default {
   font-size: 1.25rem;
   font-weight: bold;
   height: 200px;
-  font-family: $vs-code-font;
   background-color: $primary-color;
   cursor: pointer;
+  grid-area: section;
 }
-.section-icon > img {
-  max-height: 100%;
-  max-width: 100%;
-}
-.section-icon {
-  width: 80px;
-}
-.project-list {
+.projects {
   grid-area: project-list;
   width: 100%;
   height: 100%;
+}
+.project-list {
+  height: 90%;
   border-radius: 30px;
 
   overflow-y: scroll;
@@ -183,8 +198,5 @@ export default {
   background-color: $quinary-color;
   cursor: pointer;
   margin: 5px;
-}
-.fade {
-  opacity: 30%;
 }
 </style>

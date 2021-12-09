@@ -1,7 +1,12 @@
 @import "@/scss/variables.scss";
 
 
-
+.fade-30 {
+  opacity: 30%;
+}
+.fade-60{
+  opacity: 60%;
+}
 
 .center-x-axis{
     position: relative;
@@ -42,9 +47,12 @@
 
 }
 .background-label:hover{
-  font-weight: bold;
-  border-bottom: 1px solid $dark-text-color;
-//   background-color: $opaque-secondary-color;
+  font-weight: bolder;
+  text-decoration: underline;
+  // border-bottom: 1px solid $dark-text-color;
+}
+.background-label-hovered{
+  @extend .background-label:hover;
 }
 
 img{
@@ -52,6 +60,11 @@ img{
     max-height:100%;
 }
 
+.icon {
+  height: $icon-size;
+  width: $icon-size;
+  color: $tertiary-color;
+}
 h1{}
 h2{}
 h3{}

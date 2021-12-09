@@ -145,18 +145,15 @@ export default {
       footerIcons: [
         {
           icon: faLinkedin,
-          link: "https://www.linkedin.com/in/ijeri-omitogun/",
-          iconName: ["fa-brands", "fa-linkedin"]
+          link: "https://www.linkedin.com/in/ijeri-omitogun/"
         },
         {
           icon: faGithub,
-          link: "https://github.com/ijeriomit",
-          iconName: ["fa-brands", "fa-github"]
+          link: "https://github.com/ijeriomit"
         },
         {
           icon: faMedium,
-          link: "https://jeri-omit.medium.com/",
-          iconName: ["fa-brands", "fa-medium"]
+          link: "https://jeri-omit.medium.com/"
         }
       ]
     };

@@ -19,8 +19,6 @@
 </template>
 <script>
 import sectionTitle from "@/components/section-title.vue";
-import imageProcessingIcon from "@/assets/project-images/section-images/vision-logo.png";
-import unityIcon from "@/assets/project-images/section-images/unity.png";
 import webDevIcon from "@/assets/project-images/section-images/coding-icon-2.png";
 import codingIcon from "@/assets/project-images/section-images/coding-icon.jpg";
 
@@ -31,6 +29,13 @@ import MasterMind from "@/assets/project-images/project-images/mastermind-image.
 import ColorPicker from "@/assets/project-images/project-images/color-picker.png";
 import ImageManip from "@/assets/project-images/project-images/image-manip.png";
 import Ros from "@/assets/project-images/project-images/ROS.png";
+
+import {
+  faDesktop,
+  faRobot,
+  faDatabase
+} from "@fortawesome/free-solid-svg-icons";
+import { faUnity } from "@fortawesome/free-brands-svg-icons";
 
 import projectGrid from "@/components/project-grid";
 
@@ -44,19 +49,25 @@ export default {
     return {
       projectsSections: [
         {
-          title: "Web Dev",
-          icon: webDevIcon,
+          title: "Front End Development",
+          icon: faDesktop,
+          hovered: false,
           projects: [
             {
               desc: "",
+              title: "Haloguard",
+              languages: ["Vue", "ROS", "Python"]
+            },
+            {
+              desc: "",
               title: "Bit Components",
-              languages: ["Vue, Node"],
+              languages: ["Vue", "Node"],
               image: BitComponents
             },
             {
               desc: "",
               title: "File Tree",
-              languages: ["Vue, Node"],
+              languages: ["Vue", "Node"],
               image: BitComponents
             },
             {
@@ -69,7 +80,9 @@ export default {
         },
         {
           title: "Game Dev",
-          icon: unityIcon,
+          icon: faUnity,
+          hovered: false,
+
           projects: [
             {
               desc: "",
@@ -92,15 +105,56 @@ export default {
           ]
         },
         {
-          title: "Image/Video ProcessinG",
-          icon: imageProcessingIcon,
+          title: "Quality Assurance",
+          icon: faUnity,
+          hovered: false,
           projects: [
+            {
+              desc: "",
+              title: "Epoch",
+              languages: ["Unity3D, C#, Krita, Spriter"],
+              image: Epoch
+            },
+            {
+              desc: "",
+              title: "Lab",
+              languages: ["Unity3D, C#, Paint3D"],
+              image: Lab
+            },
+            {
+              desc: "",
+              title: "MasterMind",
+              languages: ["Java, Swing"],
+              image: MasterMind
+            }
+          ]
+        },
+        {
+          title: "Robotics",
+          icon: faRobot,
+          hovered: false,
+
+          projects: [
+            {
+              desc: "",
+              title: "Olympic Arm",
+              languages: ["Python", "ROS", "Flexbe"],
+              image: Ros
+            },
             {
               desc: "",
               title: "ROS-Video-Recorder",
               languages: ["Python, ROS, PyTest"],
               image: Ros
-            },
+            }
+          ]
+        },
+        {
+          title: "Backend Development",
+          icon: faDatabase,
+          hovered: false,
+
+          projects: [
             {
               desc: "",
               title: "Image Manipulator",
@@ -112,13 +166,7 @@ export default {
               title: "Color Picker",
               languages: ["Python, OpenCV"],
               image: ColorPicker
-            }
-          ]
-        },
-        {
-          title: "Python and Etc.",
-          icon: codingIcon,
-          projects: [
+            },
             {
               desc: "",
               title: "Advent of Code",

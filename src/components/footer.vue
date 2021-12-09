@@ -19,16 +19,10 @@
 </template>
 <script>
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import { library } from "@fortawesome/fontawesome-svg-core";
 
 export default {
   components: {
     "font-awesome": FontAwesomeIcon
-  },
-  created: function() {
-    this.footerIcons.map(iconObj => {
-      library.add(iconObj);
-    });
   },
   props: {
     footerIcons: {
@@ -39,6 +33,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "@/scss/variables.scss";
+@import "@/scss/styles.scss";
 
 .footer-wrapper {
   flex-flow: row nowrap;
@@ -62,15 +57,9 @@ export default {
   position: absolute;
   width: fit-content;
 }
-.icon {
-  height: 100%;
-  width: 100%;
-  color: $tertiary-color;
-}
 a {
   width: 3rem;
   height: 3rem;
-  // background-color: white;
   display: block;
   margin-left: 60px;
 }
