@@ -10,21 +10,17 @@
     </section-title>
     <div class="content-section">
       <div class="text-boxes">
-        <text-box class="desc-content">
-          <template v-slot:text-slot>
-            <div class="text lorem-ipsum-1"></div>
-          </template>
-        </text-box>
-        <text-box class="skills-content">
-          <template class="text" v-slot:text-slot>
-            <span>Recent Technologies:</span>
-            <ul class="technologies">
-              <li v-for="(item, index) in technologies" :key="index">
-                {{ item }}
-              </li>
-            </ul>
-          </template>
-        </text-box>
+        <div class="desc-content text-box">
+          <div class="text lorem-ipsum-1"></div>
+        </div>
+        <div class="skills-content text-box">
+          <span>Recent Technologies:</span>
+          <ul class="technologies">
+            <li v-for="(item, index) in technologies" :key="index">
+              {{ item }}
+            </li>
+          </ul>
+        </div>
       </div>
       <floating-frame
         :borderColor="'#4F3E3E'"
@@ -40,7 +36,6 @@
 <script>
 import FloatingFrame from "@/components/floating-frame";
 import sectionTitle from "@/components/section-title.vue";
-import textBox from "@/components/text-box.vue";
 
 import image from "@/assets/about-me-images/ij-floatin.png";
 export default {
@@ -54,8 +49,7 @@ export default {
   },
   components: {
     "floating-frame": FloatingFrame,
-    "section-title": sectionTitle,
-    "text-box": textBox
+    "section-title": sectionTitle
   }
 };
 </script>
@@ -117,6 +111,11 @@ $phone-image-height: 15rem;
   order: 2;
   width: $image-width;
   height: $image-height;
+}
+.text {
+  width: 90%;
+  height: 90%;
+  overflow: hidden;
 }
 @media screen and (max-width: $small-screen-width) {
   .content-section {

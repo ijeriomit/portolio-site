@@ -13,7 +13,43 @@
       </template>
     </section-title>
     <div class="content-section">
-      <project-grid :gridData="projectsSections"></project-grid>
+      <div class="sections">
+        <div
+          v-for="(section, index) in projectsSections"
+          :key="index"
+          @click="selectSection(section)"
+          @mouseenter="section.hovered = true"
+          @mouseleave="section.hovered = false"
+          class="section-label text-box"
+          :style="{ 'grid-area': 'section' + (index + 1) }"
+          :class="[
+            section.hovered && selectedSection != section ? 'fade-85' : '',
+            fadeSection(section) ? 'fade-60' : '',
+            selectedSection == section ? 'focused-section' : ''
+          ]"
+        >
+          <font-awesome class="icon" :icon="section.icon"></font-awesome>
+          <h3 class="section-title">
+            {{ section.title }}
+          </h3>
+        </div>
+      </div>
+      <div class="projects">
+        <project-card
+          class="project-card"
+          v-for="(project, index) in getSectionProjects(selectedSection)"
+          @mouseenter.native="projectHovered(project)"
+          @mouseleave.native="project.hovered = false"
+          @click.native="selectProject(project)"
+          :key="index"
+          :projectData="project"
+          :fadeImage="!project.hovered"
+          :class="[
+            project.hovered ? 'focused-project' : '',
+            project == selectedProject ? 'selected-project' : ''
+          ]"
+        ></project-card>
+      </div>
     </div>
   </div>
 </template>
@@ -36,17 +72,21 @@ import {
   faDatabase
 } from "@fortawesome/free-solid-svg-icons";
 import { faUnity } from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
-import projectGrid from "@/components/project-grid";
+import projectCard from "@/components/project-card";
 
 export default {
   name: "projects",
   components: {
     "section-title": sectionTitle,
-    "project-grid": projectGrid
+    "project-card": projectCard,
+    "font-awesome": FontAwesomeIcon
   },
   data: function() {
     return {
+      selectedSection: null,
+      selectedProject: null,
       projectsSections: [
         {
           title: "Front End Development",
@@ -56,54 +96,37 @@ export default {
             {
               desc: "",
               title: "Haloguard",
-              languages: ["Vue", "ROS", "Python"]
+              technologies: ["Vue", "ROS", "Python"],
+              links: [""],
+              hovered: false
             },
             {
               desc: "",
               title: "Bit Components",
-              languages: ["Vue", "Node"],
-              image: BitComponents
+              technologies: ["Vue", "Node"],
+              image: BitComponents,
+              links: [""],
+              hovered: false
             },
             {
               desc: "",
               title: "File Tree",
-              languages: ["Vue", "Node"],
-              image: BitComponents
+              technologies: ["Vue", "Node"],
+              image: BitComponents,
+              links: [""],
+              hovered: false
             },
             {
               desc: "",
               title: "Portfolio-Site",
-              languages: ["Vue, Node, Chai, SASS"],
-              image: BitComponents
+              technologies: ["Vue, Node, Chai, SASS"],
+              image: BitComponents,
+              links: [""],
+              hovered: false
             }
           ]
         },
-        {
-          title: "Game Dev",
-          icon: faUnity,
-          hovered: false,
 
-          projects: [
-            {
-              desc: "",
-              title: "Epoch",
-              languages: ["Unity3D, C#, Krita, Spriter"],
-              image: Epoch
-            },
-            {
-              desc: "",
-              title: "Lab",
-              languages: ["Unity3D, C#, Paint3D"],
-              image: Lab
-            },
-            {
-              desc: "",
-              title: "MasterMind",
-              languages: ["Java, Swing"],
-              image: MasterMind
-            }
-          ]
-        },
         {
           title: "Quality Assurance",
           icon: faUnity,
@@ -112,20 +135,26 @@ export default {
             {
               desc: "",
               title: "Epoch",
-              languages: ["Unity3D, C#, Krita, Spriter"],
-              image: Epoch
+              technologies: ["Unity3D, C#, Krita, Spriter"],
+              image: Epoch,
+              links: [""],
+              hovered: false
             },
             {
               desc: "",
               title: "Lab",
-              languages: ["Unity3D, C#, Paint3D"],
-              image: Lab
+              technologies: ["Unity3D, C#, Paint3D"],
+              image: Lab,
+              links: [""],
+              hovered: false
             },
             {
               desc: "",
               title: "MasterMind",
-              languages: ["Java, Swing"],
-              image: MasterMind
+              technologies: ["Java, Swing"],
+              image: MasterMind,
+              links: [""],
+              hovered: false
             }
           ]
         },
@@ -135,17 +164,19 @@ export default {
           hovered: false,
 
           projects: [
-            {
-              desc: "",
-              title: "Olympic Arm",
-              languages: ["Python", "ROS", "Flexbe"],
-              image: Ros
-            },
+            // {
+            //   desc: "",
+            //   title: "Olympic Arm",
+            //   technologies: ["Python", "ROS", "Flexbe"],
+            //   image: Ros
+            // },
             {
               desc: "",
               title: "ROS-Video-Recorder",
-              languages: ["Python, ROS, PyTest"],
-              image: Ros
+              technologies: ["Python, ROS, PyTest"],
+              image: Ros,
+              links: [""],
+              hovered: false
             }
           ]
         },
@@ -158,44 +189,102 @@ export default {
             {
               desc: "",
               title: "Image Manipulator",
-              languages: ["Python, OpenCV, PyTest"],
-              image: ImageManip
+              technologies: ["Python, OpenCV, PyTest"],
+              image: ImageManip,
+              links: [""],
+              hovered: false
             },
             {
               desc: "",
               title: "Color Picker",
-              languages: ["Python, OpenCV"],
-              image: ColorPicker
+              technologies: ["Python, OpenCV"],
+              image: ColorPicker,
+              links: [""],
+              hovered: false
             },
             {
               desc: "",
               title: "Advent of Code",
-              languages: ["Python", "PyTest"],
-              image: codingIcon
+              technologies: ["Python", "PyTest"],
+              image: codingIcon,
+              links: [""],
+              hovered: false
             },
             {
               desc: "",
               title: "Rubix-Cube-Solver",
-              languages: ["Python, OpenCV"],
-              image: codingIcon
+              technologies: ["Python, OpenCV"],
+              image: codingIcon,
+              links: [""],
+              hovered: false
             },
             {
               desc: "",
               title: "SeleniumDemo",
-              languages: ["SeleniumWebDrvier, Python, Vue"],
-              image: webDevIcon
+              technologies: ["SeleniumWebDrvier, Python, Vue"],
+              image: webDevIcon,
+              links: [""],
+              hovered: false
             }
           ]
         }
       ]
     };
+  },
+  methods: {
+    selectSection: function(section) {
+      console.log("selected section");
+      this.selectedSection = section;
+      // this.selectProject(section.projects[0]);
+    },
+    selectProject: function(project) {
+      if (this.selectedProject == project) {
+        this.selectedProject = null;
+      } else {
+        this.selectedProject = project;
+      }
+    },
+    fadeSection: function(section) {
+      console.log("section faded");
+      if (this.selectedSection != null) {
+        return section.title != this.selectedSection.title;
+      }
+      return false;
+    },
+    sectionHovered: function(section) {
+      console.log("hovered: ", section.title);
+      section.hovered = true;
+    },
+    projectHovered: function(project) {
+      if (project != this.selectedProject) {
+        project.hovered = true;
+      }
+    },
+    getSectionProjects: function(section) {
+      let projects = [];
+      if (section != null && "projects" in section) {
+        projects = section.projects;
+      }
+      return projects;
+    }
   }
 };
 </script>
 <style lang="scss" scoped>
+@import "@/scss/variables.scss";
+@import "@/scss/styles.scss";
+
+$section-width: 18rem;
+$section-height: 13rem;
+$offset: 5rem;
+
+$project-height: 15rem;
+$project-width: 30rem;
+
 .projects-wrapper {
   width: 90%;
   align-self: center;
+  font-family: $vs-code-font;
 }
 .content-section {
   display: flex;
@@ -204,22 +293,54 @@ export default {
   align-items: center;
   height: 75%;
 }
-.folder {
+
+.sections {
+  width: $section-width * 4 + $offset;
+  height: $section-height;
   display: flex;
-  display: none;
-  flex-flow: column nowrap;
+  flex-flow: row nowrap;
+  justify-content: space-around;
   align-items: center;
+}
+.projects {
+  width: $project-width * 2 + $offset;
+  height: $project-height * 2 + $offset;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  align-items: flex-start;
+  // background-color: $opaque-primary-color;
+}
+.project-card {
+  width: $project-width;
+  height: $project-height;
+  margin: 10px;
+}
+.section-label {
+  grid-row: 1;
+  flex-flow: column nowrap;
   text-align: center;
-  justify-content: center;
-  width: 300px;
+  width: 18rem;
   font-size: 1.25rem;
   font-weight: bold;
-  height: 200px;
-  font-family: Consolas, monaco, monospace;
-  background-color: #008753cf;
-  border-radius: 30px;
+  height: 13rem;
+  background-color: $primary-color;
+  cursor: pointer;
+  grid-area: section;
 }
-.button {
-  width: 80px;
+.focused-section {
+  width: $section-width + 1rem;
+  height: $section-height + 1rem;
+}
+.selected-project {
+  width: 100%;
+  height: $section-height * 2;
+  order: -1;
+}
+.focused-project {
+  width: $project-width + 1rem;
+  height: $project-height + 1rem;
 }
 </style>

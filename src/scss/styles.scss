@@ -1,11 +1,11 @@
 @import "@/scss/variables.scss";
 
 
-.fade-30 {
-  opacity: 30%;
-}
-.fade-60{
+.fade-60 {
   opacity: 60%;
+}
+.fade-85{
+  opacity: 85%;
 }
 
 .center-x-axis{
@@ -58,6 +58,21 @@
 img{
     max-width: 100%;
     max-height:100%;
+}
+.text-box {
+  background-color: grey;
+  border-radius: $box-border-radius;
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 10px 15px rgba(25, 25, 25, 0.1);
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 10px;
+  font-size: $text-size;
+  transition: 0.6s ease;
 }
 
 .icon {

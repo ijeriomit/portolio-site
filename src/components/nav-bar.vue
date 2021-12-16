@@ -11,13 +11,6 @@
       :href="tab.link"
       >{{ tab.text }}
     </a>
-    <!-- <a class="background-label" aria-label="home-tab" role="tab" href="#HOME">
-      .home()
-    </a>
-    <a class="background-label" href="#ABOUT-ME"> .aboutMe()</a>
-    <a class="background-label" href="#WORK-EXPERIENCE"> .workExperience()</a>
-    <a class="background-label" href="#PROJECTS"> .projects()</a>
-    <a class="background-label" href="#CONTACT-ME"> .contactMe()</a> -->
   </div>
 </template>
 <script>
